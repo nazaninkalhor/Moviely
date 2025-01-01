@@ -8,4 +8,5 @@ Key Features:
 - Custom Styling: Aesthetics powered by Tailwind CSS and Daisy UI to achieve a modern and visually appealing look.
 - TypeScript Integration: Robust type safety for scalable and maintainable code, ensuring fewer bugs and greater reliability.
 - Fast and Scalable: Built with Next.js for server-side rendering and optimized loading speeds, making the platform scalable for a global audience.
+
 Moviely combines cutting-edge web development practices with an immersive UI to create a platform that is not just functional but also delightful to use. Explore, stream, and enjoy your favorite movies like never before!
