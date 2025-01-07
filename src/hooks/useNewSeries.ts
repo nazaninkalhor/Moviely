@@ -1,6 +1,6 @@
 import fetchData from "./fetchData";
 
-const popularSeries = async () => {
+const newSeries = async () => {
     const movies = await fetchData(
         "/tv/top_rated"
     );
@@ -8,4 +8,4 @@ const popularSeries = async () => {
     return movies;
 }
 
-export default popularSeries;
+export default newSeries;

@@ -4,14 +4,14 @@ import AutoCarousel from "./AutoCarousel";
 import popularMovie from "@/src/hooks/usePopular";
 import { AiOutlineFire } from "react-icons/ai";
 const PopularMovies = async () => {
-  const topMovies = (await popularMovie()).results.slice(0, 12);
+  const topMovies = (await popularMovie()).results.slice(0, 18);
 
   const topMoviesCardItems = topMovies.map((o) => ({
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.original_title,
     description: o.overview,
     popularity: o.vote_average,
-    button: [],
+    link: o.overview,
   }));
 
   const topMoviesCards = topMoviesCardItems.map((cardItem, index) => (

@@ -1,0 +1,124 @@
+import React from "react";
+import { AiOutlineGlobal } from "react-icons/ai";
+
+const News = () => {
+  return (
+    <div className="mt-3">
+      {/* Title */}
+      <div className="flex flex-row text-white mb-8 font-semibold ms-5 text-3xl items-center">
+        <AiOutlineGlobal />
+        <h2 className="ms-2">Latest News</h2>
+      </div>
+
+      {/* Cards Container */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-2 gap-y-10 md:gap-10 lg:mx-10">
+        {/* Card 1 */}
+        <div className="card bg-gray-800 shadow-sm">
+          <figure>
+            <img
+              src="https://i1.sndcdn.com/artworks-dV4nKpnTsSy13f8h-TmuLyQ-t1080x1080.jpg"
+              alt="Movie"
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body text-white">
+            <h2 className="card-title text-xl md:text-2xl">
+              Everything about Culpa Tuya!
+            </h2>
+            <p className="text-sm md:text-base">
+              The love between Noah and Nick seems unwavering despite their
+              parents' attempts to separate them. But his job and her entry into
+              college open up their lives to new relationships that will shake
+              the foundations of both their relationship and the Leister family
+              itself.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn bg-red-800 border-none text-white">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="card bg-gray-800 shadow-sm">
+          <figure>
+            <img
+              src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/10/chicago-pd-season-1.jpg"
+              alt="Movie"
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body text-white">
+            <h2 className="card-title text-xl md:text-2xl">
+              Everything about Culpa Tuya!
+            </h2>
+            <p className="text-sm md:text-base">
+              The love between Noah and Nick seems unwavering despite their
+              parents' attempts to separate them. But his job and her entry into
+              college open up their lives to new relationships that will shake
+              the foundations of both their relationship and the Leister family
+              itself.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn bg-red-800 border-none text-white">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Card 2 */}
+        <div className="card bg-gray-800 shadow-sm">
+          <figure>
+            <img
+              src="https://www.forcesnews.com/sites/default/files/Image-ID-2H9B2RW-Daniel-Craig-as-James-Bond-in-Spectre%2C-2015-CREDIT-Columbia-Pictures-Entertainment-Picture-EXP-231124.jpg"
+              alt="Movie"
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body text-white">
+            <h2 className="card-title text-xl md:text-2xl">
+              Discover New Adventures!
+            </h2>
+            <p className="text-sm md:text-base">
+              Embark on an incredible journey filled with challenges, emotions,
+              and unforgettable moments. A story that captures the essence of
+              human resilience and love.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn bg-red-800 border-none text-white">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="card bg-gray-800 shadow-sm">
+          <figure>
+            <img
+              src="https://lh5.googleusercontent.com/proxy/P-4Ds1ieCRCWdOKVJZO0XezCzpO3yuXIxKuOkg26Q1oiDiju_7iM1x0AQ-TE5f0TlaezayvNK9NtdksdRq0NXK_K8IYlgvx8d8GdpqnL2sRbMgx_3cyjU_JjS0QhhWJq9Be4oVUfKNTcvMXBBxrPBy8BsanLSR9m"
+              alt="Movie"
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body text-white">
+            <h2 className="card-title text-xl md:text-2xl">
+              Leonardo Dicaprio is returned to the Cinema
+            </h2>
+            <p className="text-sm md:text-base">
+              The love between Noah and Nick seems unwavering despite their
+              parents' attempts to separate them. But his job and her entry into
+              college open up their lives to new relationships that will shake
+              the foundations of both their relationship and the Leister family
+              itself.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn bg-red-800 border-none text-white">
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default News;

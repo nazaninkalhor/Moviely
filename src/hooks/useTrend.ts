@@ -1,6 +1,6 @@
 import fetchData from "./fetchData";
 
-const suggestedMovie = async () => {
+const trends = async () => {
     const movies = await fetchData(
         "/trending/all/day?language=en-US"
     );
@@ -8,4 +8,4 @@ const suggestedMovie = async () => {
     return movies;
 }
 
-export default suggestedMovie;
+export default trends;

@@ -1,11 +1,11 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import PopularMovies from "./components/PopularMovies";
-import PopularSeries from "./components/PopularSeries";
+import PopularSeries from "./components/NewSeries";
 import Trends from "./components/Trends";
-// heros
-// popularMovies
-//
+import News from "./components/News";
+import Footer from "./components/Footer";
+import PriceSection from "./components/PriceSection";
 
 export default function Home() {
   return (
@@ -21,6 +21,9 @@ export default function Home() {
       <PopularSeries />
 
       <Trends />
+      <PriceSection />
+      <News />
+      <Footer />
     </div>
   );
 }

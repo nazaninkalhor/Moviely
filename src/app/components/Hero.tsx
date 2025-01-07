@@ -56,10 +56,10 @@ const Hero = async () => {
                       {movie.original_title}
                     </h1>
 
-                    <span className="badge badge-lg bg-orange-600 border-0 py-2  ms-4 text-white px-2 rounded-lg flex flex-row items-center text-lg">
+                    <div className="badge  bg-yellow-600 border-0 py-4  ms-4 text-white px-2 rounded-lg flex flex-row items-center text-2xl ">
                       <MdStarRate className="me-1 text-xl" />
                       {truncateToFirstDecimal(movie.vote_average)}
-                    </span>
+                    </div>
                   </div>
                   <p className="mb-5 text-white max-w-md font-semibold text-md hidden md:block">
                     {movie.overview}

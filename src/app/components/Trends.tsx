@@ -2,17 +2,19 @@ import React from "react";
 import Card from "./Card";
 import AutoCarousel from "./AutoCarousel";
 import { AiOutlineStar } from "react-icons/ai";
-import suggestedMovie from "@/src/hooks/useSuggest";
+import trends from "@/src/hooks/useTrend";
 const Trends = async () => {
-  const topMovies = (await suggestedMovie()).results.slice(0, 12);
+  const topMovies = (await trends()).results
+    .filter((o) => o.overview != "")
+    .slice(0, 18);
 
+  console.log(topMovies);
   const topMoviesCardItems = topMovies.map((o) => ({
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
-    title: o.name,
+    title: o.name != undefined ? o.name : o.title,
     description: o.overview,
     popularity: o.vote_average,
-
-    button: [],
+    link: o.overview,
   }));
 
   const topMoviesCards = topMoviesCardItems.map((cardItem, index) => (
