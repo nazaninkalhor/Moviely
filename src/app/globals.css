@@ -5,11 +5,12 @@
 :root {
   padding: 0;
   margin: 0;
-  background-color: black;
 }
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
+
 }
 @layer base {
   :root {

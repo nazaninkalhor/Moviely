@@ -147,7 +147,7 @@ const Navbar = () => {
                   <span className="badge badge-xs badge-error indicator-item"></span>
                 </div>
               </button>
-              <button className="btn btn-ghost hidden md:block bg-white">
+              <button className="btn btn-ghost hidden md:block bg-white text-black">
                 Pricing
               </button>
 

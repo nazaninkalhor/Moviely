@@ -7,6 +7,7 @@ const PopularSeries = async () => {
   const topMovies = (await newSeries()).results.slice(0, 18);
 
   const topMoviesCardItems = topMovies.map((o) => ({
+    id: o.id,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.name,
     description: o.overview,
@@ -25,7 +26,7 @@ const PopularSeries = async () => {
         <h2 className="text-white font-semibold  text-3xl ms-2 ">New Series</h2>
       </div>
       <div className=" md:ms-4">
-        <AutoCarousel items={topMoviesCards} />;
+        <AutoCarousel items={topMoviesCards} />
       </div>
     </>
   );

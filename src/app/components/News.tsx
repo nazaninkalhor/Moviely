@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { AiOutlineGlobal } from "react-icons/ai";
 
@@ -33,9 +34,11 @@ const News = () => {
               itself.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn bg-red-800 border-none text-white">
-                Read More
-              </button>
+              <Link href="/news">
+                <button className="btn bg-red-800 border-none text-white">
+                  Read More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -49,14 +52,13 @@ const News = () => {
           </figure>
           <div className="card-body text-white">
             <h2 className="card-title text-xl md:text-2xl">
-              Everything about Culpa Tuya!
+              Chicago P.D. is Back!
             </h2>
             <p className="text-sm md:text-base">
-              The love between Noah and Nick seems unwavering despite their
-              parents' attempts to separate them. But his job and her entry into
-              college open up their lives to new relationships that will shake
-              the foundations of both their relationship and the Leister family
-              itself.
+              Follows the lives of the personnel of the fictional 21st District,
+              which houses both uniformed officers and the department's elite
+              Intelligence Unit as they fight every day to keep the city of
+              Chicago, Illinois safe.
             </p>
             <div className="card-actions justify-end">
               <button className="btn bg-red-800 border-none text-white">
@@ -76,7 +78,7 @@ const News = () => {
           </figure>
           <div className="card-body text-white">
             <h2 className="card-title text-xl md:text-2xl">
-              Discover New Adventures!
+              Candidates for James Bond
             </h2>
             <p className="text-sm md:text-base">
               Embark on an incredible journey filled with challenges, emotions,

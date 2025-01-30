@@ -1,3 +1,5 @@
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import "./globals.css"; // Include your Tailwind CSS or global styles
 export const metadata = {
   title: "Moviely",
@@ -11,7 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-black text-white flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow ">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -8,8 +8,8 @@ const Trends = async () => {
     .filter((o) => o.overview != "")
     .slice(0, 18);
 
-  console.log(topMovies);
   const topMoviesCardItems = topMovies.map((o) => ({
+    id: o.id,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.name != undefined ? o.name : o.title,
     description: o.overview,
@@ -27,8 +27,8 @@ const Trends = async () => {
         <AiOutlineStar className="text-3xl text-white" />
         <h2 className="text-white font-semibold  text-3xl ms-2">Trending</h2>
       </div>
-      <div className=" md:ms-4">
-        <AutoCarousel items={topMoviesCards} />;
+      <div className=" md:ms-4 mb-10">
+        <AutoCarousel items={topMoviesCards} />
       </div>
     </>
   );
