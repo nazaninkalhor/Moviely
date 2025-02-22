@@ -15,6 +15,7 @@ function truncateToFirstDecimal(number) {
 
 const Hero = (banner: Banner) => {
   banner = banner.banner;
+  console.log(banner);
   return (
     <>
       <div className="hero min-h-screen w-screen ">
@@ -36,16 +37,16 @@ const Hero = (banner: Banner) => {
           <div className="absolute bottom-10 left-10 z-10 text-white">
             <div className="w-full ps-1 md:px-16 ">
               <div className="flex flex-row items-center">
-                <h1 className="mb-5 text-3xl md:text-start md:text-5xl font-bold text-white">
+                <h1 className="mb-5 text-3xl md:text-start md:text-5xl font-bold text-white sm:max-w-sm md:max-w-full">
                   {banner.title}
                 </h1>
 
-                <div className="badge  bg-yellow-600 border-0 py-4  ms-4 text-white px-2 rounded-lg flex flex-row items-center text-2xl ">
+                <div className="badge hidden   bg-yellow-600 border-0 py-4 ms-4 text-white px-2 rounded-lg md:flex flex-row items-center text-2xl ">
                   <MdStarRate className="me-1 text-xl" />
                   {truncateToFirstDecimal(banner.popularity)}
                 </div>
               </div>
-              <p className="mb-5 text-white max-w-md font-semibold text-md hidden md:block">
+              <p className="mb-5 text-white md:max-w-md font-semibold text-md hidden sm:block sm:max-w-sm">
                 {banner.description}
               </p>
               <button className="btn bg-red-800 border-none text-white">

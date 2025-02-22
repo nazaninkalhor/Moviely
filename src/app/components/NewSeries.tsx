@@ -12,7 +12,9 @@ const PopularSeries = async () => {
     title: o.name,
     description: o.overview,
     popularity: o.vote_average,
-    link: o.overview,
+    overview: o.overview,
+    link: `/detail/series/${o.id}`,
+
   }));
 
   const topMoviesCards = topMoviesCardItems.map((cardItem, index) => (

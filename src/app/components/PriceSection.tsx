@@ -1,8 +1,8 @@
-import Link from "next/link";
 import React from "react";
 import { RiBaseStationLine } from "react-icons/ri";
 import { MdLocalMovies } from "react-icons/md";
 import { Ri24HoursFill } from "react-icons/ri";
+import Link from "next/link";
 const PriceSection = () => {
   return (
     <div className=" w-full relative">
@@ -42,9 +42,11 @@ const PriceSection = () => {
             Watch
           </li>
         </ul>
-        <button className="bg-red-800 btn border-none text-white mt-10 md:text-xl">
-          See Subscriptions
-        </button>
+        <Link href="/pricing">
+          <button className="bg-red-800 btn border-none text-white mt-10 md:text-xl">
+            See Subscriptions
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -8,11 +8,12 @@ const PopularMovies = async () => {
 
   const topMoviesCardItems = topMovies.map((o) => ({
     id: o.id,
+    overview: o.overview,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
-    title: o.original_title,
+    title: o.title,
     description: o.overview,
     popularity: o.vote_average,
-    link: o.overview,
+    link: `/detail/movies/${o.id}`,
   }));
   const topMoviesCards = topMoviesCardItems.map((cardItem, index) => (
     <Card key={index} cardItem={cardItem} />

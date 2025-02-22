@@ -1,6 +1,5 @@
-import Link from "next/link";
 import React from "react";
-
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="navbar bg-grey/50 backdrop-blur-lg border-b border-white/20 fixed w-full z-50 ">
@@ -31,33 +30,78 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow navbar-center text-black"
             >
               <li>
-                <a>Movies</a>
+                <Link
+                  href="/"
+                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                >
+                  Movies
+                </Link>
               </li>
               <li>
-                <a>Series</a>
+                <Link
+                  href="/"
+                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                >
+                  Series
+                </Link>
               </li>
               <li>
-                <a>Online Stream</a>
+                <Link
+                  href="/"
+                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                >
+                  Stream
+                </Link>
               </li>
               <li>
-                <a>News</a>
+                <Link
+                  href="/"
+                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                >
+                  News
+                </Link>
               </li>
               <li>
-                <a>Categories</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Drama</a>
-                  </li>
-                  <li>
-                    <a>Action</a>
-                  </li>
-                  <li>
-                    <a>Fantasy</a>
-                  </li>
-                </ul>
+                <details>
+                  <a className="text-white hover:text-red-500 focus:ring-0  active:text-white ">
+                    Categories
+                  </a>
+                  <ul className="p-2 bg-slate-700">
+                    <h4 className="font-bold text-lg">Genres</h4>
+                    <li>
+                      <Link
+                        href="/"
+                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                      >
+                        Drama
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/"
+                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                      >
+                        Action
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/"
+                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                      >
+                        Fantasy
+                      </Link>
+                    </li>
+                  </ul>
+                </details>
               </li>
-              <li>
-                <a>Contact Us</a>
+              <li className="">
+                <Link
+                  href="/contactUs"
+                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -73,16 +117,36 @@ const Navbar = () => {
             <div className="navbar-center hidden custom:flex custom:flex-row ">
               <ul className="menu menu-horizontal px-4 text-white text-lg">
                 <li>
-                  <a>Movies</a>
+                  <Link
+                    href="/"
+                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  >
+                    Movies
+                  </Link>
                 </li>
                 <li>
-                  <a>Series</a>
+                  <Link
+                    href="/"
+                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  >
+                    Series
+                  </Link>
                 </li>
                 <li>
-                  <a>Online Stream</a>
+                  <Link
+                    href="/"
+                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  >
+                    Stream
+                  </Link>
                 </li>
                 <li>
-                  <a>News</a>
+                  <Link
+                    href="/"
+                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  >
+                    News
+                  </Link>
                 </li>
                 <li>
                   <details>
@@ -90,19 +154,39 @@ const Navbar = () => {
                     <ul className="p-2 bg-slate-700">
                       <h4 className="font-bold text-lg">Genres</h4>
                       <li>
-                        <a>Drama</a>
+                        <Link
+                          href="/"
+                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        >
+                          Drama
+                        </Link>
                       </li>
                       <li>
-                        <a>Action</a>
+                        <Link
+                          href="/"
+                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        >
+                          Action
+                        </Link>
                       </li>
                       <li>
-                        <a>Fantasy</a>
+                        <Link
+                          href="/"
+                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        >
+                          Fantasy
+                        </Link>
                       </li>
                     </ul>
                   </details>
                 </li>
-                <li>
-                  <a>Contact Us</a>
+                <li className="">
+                  <Link
+                    href="/contactUs"
+                    className="text-white focus:text-red-500 focus:ring-0  "
+                  >
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -147,12 +231,18 @@ const Navbar = () => {
                   <span className="badge badge-xs badge-error indicator-item"></span>
                 </div>
               </button>
-              <button className="btn btn-ghost hidden md:block bg-white text-black">
-                Pricing
-              </button>
+              <Link href="/pricing" className="font-semibold">
+                <button className="btn btn-ghost border-white border-2 text-white hidden md:block">
+                  Pricing
+                </button>
+              </Link>
+              <Link href="/">
+                <button className="btn btn-outline border-none bg-white text-black">
+                  Login
+                </button>
+              </Link>
 
-              {/* Profile Dropdown */}
-              <div className="dropdown dropdown-end">
+              {/* <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
                   role="button"
@@ -181,7 +271,7 @@ const Navbar = () => {
                     <a>Logout</a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
 
