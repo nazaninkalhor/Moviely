@@ -61,8 +61,8 @@ const MovieDetailPage = async ({
                       <Image
                         className=" card border-neutral border-2 bg-base-100 max-w-full shadow-xl group overflow-hidden w-full h-full"
                         src={`https://image.tmdb.org/t/p/w1280${result.poster_path}`}
-                        width={250}
-                        height={50}
+                        width={200}
+                        height={100}
                         alt="movie Image"
                       />
                     </figure>
@@ -160,6 +160,12 @@ const MovieDetailPage = async ({
               There is no review for this movie yet!
             </p>
           )}
+
+          <div className="mt-10 text-center">
+            <p className="text-red-400 font-semibold text-3xl">
+              Please Signup or Login to Leave your Review Here!
+            </p>
+          </div>
         </div>
       </>
     );

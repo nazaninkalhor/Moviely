@@ -65,8 +65,8 @@ const SeriesDetailPage = async ({
                       <Image
                         className=" card border-neutral border-2 bg-base-100 max-w-full shadow-xl group overflow-hidden w-full h-full"
                         src={`https://image.tmdb.org/t/p/w1280${result.poster_path}`}
-                        width={250}
-                        height={50}
+                        width={200}
+                        height={100}
                         alt="movie Image"
                       />
                     </figure>
@@ -127,7 +127,7 @@ const SeriesDetailPage = async ({
           </h2>
           <div className="ms-10">
             <p className="font-medium text-xl text-red-400">
-              Please Signup or Login to Stream This Movie!
+              Please Signup or Login to Stream This Series!
             </p>
           </div>
         </div>
@@ -176,9 +176,14 @@ const SeriesDetailPage = async ({
             </div>
           ) : (
             <p className="text-white ms-5">
-              There is no review for this movie yet!
+              There is no review for This Series yet!
             </p>
           )}
+          <div className="mt-10 text-center">
+            <p className="text-red-400 font-semibold text-3xl">
+              Please Signup or Login to Leave your Review Here!
+            </p>
+          </div>
         </div>
       </>
     );

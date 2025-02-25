@@ -32,7 +32,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  className="text-white focus:text-red-500 focus:ring-0  "
                 >
                   Movies
                 </Link>
@@ -40,7 +40,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  className="text-white focus:text-red-500 focus:ring-0  "
                 >
                   Series
                 </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  className="text-white focus:text-red-500 focus:ring-0 "
                 >
                   Stream
                 </Link>
@@ -56,14 +56,14 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  className="text-white focus:text-red-500 focus:ring-0  "
                 >
                   News
                 </Link>
               </li>
               <li>
                 <details>
-                  <a className="text-white hover:text-red-500 focus:ring-0  active:text-white ">
+                  <a className="text-white focus:text-red-500 focus:ring-0">
                     Categories
                   </a>
                   <ul className="p-2 bg-slate-700">
@@ -71,7 +71,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href="/"
-                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        className="text-white focus:text-red-500 focus:ring-0 "
                       >
                         Drama
                       </Link>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href="/"
-                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        className="text-white focus:text-red-500 focus:ring-0 "
                       >
                         Action
                       </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href="/"
-                        className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                        className="text-white focus:text-red-500 focus:ring-0 "
                       >
                         Fantasy
                       </Link>
@@ -98,7 +98,7 @@ const Navbar = () => {
               <li className="">
                 <Link
                   href="/contactUs"
-                  className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                  className="text-white focus:text-red-500 focus:ring-0 "
                 >
                   Contact Us
                 </Link>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/"
-                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                    className="text-white focus:text-red-500 focus:ring-0 "
                   >
                     Movies
                   </Link>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/"
-                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                    className="text-white focus:text-red-500 focus:ring-0  "
                   >
                     Series
                   </Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/"
-                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                    className="text-white focus:text-red-500 focus:ring-0  "
                   >
                     Stream
                   </Link>
@@ -143,7 +143,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/"
-                    className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                    className="text-white focus:text-red-500 focus:ring-0   "
                   >
                     News
                   </Link>
@@ -156,7 +156,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           href="/"
-                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                          className="text-white focus:text-red-500 focus:ring-0  "
                         >
                           Drama
                         </Link>
@@ -164,7 +164,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           href="/"
-                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                          className="text-white focus:text-red-500 focus:ring-0    "
                         >
                           Action
                         </Link>
@@ -172,7 +172,7 @@ const Navbar = () => {
                       <li>
                         <Link
                           href="/"
-                          className="text-white hover:text-red-500 focus:ring-0  active:text-white "
+                          className="text-white focus:text-red-500 focus:ring-0"
                         >
                           Fantasy
                         </Link>
