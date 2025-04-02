@@ -12,7 +12,6 @@ const Trends = async () => {
     id: o.id,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.name != undefined ? o.name : o.title,
-    description: o.overview,
     popularity: o.vote_average,
     overview: o.overview,
     link: `/detail/movies/${o.id}`,

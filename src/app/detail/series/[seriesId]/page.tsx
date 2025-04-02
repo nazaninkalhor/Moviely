@@ -43,15 +43,19 @@ const SeriesDetailPage = async ({
     return (
       <>
         <div className=" h-screen w-full overflow-hidden ">
-          <div
-            className="relative w-screen h-screen xs:pt-10"
-            style={{
-              backgroundImage: `url("https://image.tmdb.org/t/p/w780${result.backdrop_path}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
+          {result.backdrop_path != null && (
+            <div
+              className="relative w-screen h-screen xs:pt-10"
+              style={{
+                backgroundImage: result.backdrop_path
+                  ? `url("https://image.tmdb.org/t/p/w780${result.backdrop_path}")`
+                  : "#000",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          )}
 
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent bg-opacity-40"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent bg-opacity-40"></div>
@@ -62,13 +66,19 @@ const SeriesDetailPage = async ({
                 <ul className="flex flex-row  gap-4">
                   <li className="hidden md:flex">
                     <figure>
-                      <Image
-                        className=" card border-neutral border-2 bg-base-100 max-w-full shadow-xl group overflow-hidden w-full h-full"
-                        src={`https://image.tmdb.org/t/p/w1280${result.poster_path}`}
-                        width={200}
-                        height={100}
-                        alt="movie Image"
-                      />
+                      {result.poster_path != null ? (
+                        <Image
+                          className=" card border-neutral border-2 bg-base-100 max-w-full shadow-xl group overflow-hidden w-full h-full"
+                          src={
+                            result.poster_path
+                              ? `https://image.tmdb.org/t/p/w1280${result.poster_path}`
+                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
+                          }
+                          width={200}
+                          height={100}
+                          alt="movie Image"
+                        />
+                      ) : null}
                     </figure>
                   </li>
                   <li>

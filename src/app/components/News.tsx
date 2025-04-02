@@ -6,9 +6,9 @@ const News = () => {
   return (
     <div className="mt-3">
       {/* Title */}
-      <div className="flex flex-row text-white mb-8 font-semibold ms-5 text-3xl items-center">
+      <div className="flex flex-row text-white mb-8 font-semibold ms-5 text-3xl items-center mt-20">
         <AiOutlineGlobal />
-        <h2 className="ms-2">Latest News</h2>
+        <h2 className="ms-2 ">Latest News</h2>
       </div>
 
       {/* Cards Container */}

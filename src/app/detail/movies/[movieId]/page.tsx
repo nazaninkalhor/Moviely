@@ -42,7 +42,9 @@ const MovieDetailPage = async ({
           <div
             className="relative w-screen h-screen xs:pt-10"
             style={{
-              backgroundImage: `url("https://image.tmdb.org/t/p/w780${result.backdrop_path}")`,
+              backgroundImage: result.backdrop_path
+                ? `url("https://image.tmdb.org/t/p/w780${result.backdrop_path}")`
+                : "#000",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -60,7 +62,11 @@ const MovieDetailPage = async ({
                     <figure>
                       <Image
                         className=" card border-neutral border-2 bg-base-100 max-w-full shadow-xl group overflow-hidden w-full h-full"
-                        src={`https://image.tmdb.org/t/p/w1280${result.poster_path}`}
+                        src={
+                          result.poster_path
+                            ? `https://image.tmdb.org/t/p/w1280${result.poster_path}`
+                            : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
+                        }
                         width={200}
                         height={100}
                         alt="movie Image"

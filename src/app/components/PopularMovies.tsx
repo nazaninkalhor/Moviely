@@ -11,7 +11,6 @@ const PopularMovies = async () => {
     overview: o.overview,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.title,
-    description: o.overview,
     popularity: o.vote_average,
     link: `/detail/movies/${o.id}`,
   }));

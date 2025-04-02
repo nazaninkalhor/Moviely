@@ -11,15 +11,14 @@ const PriceSection = () => {
         className="absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "url(https://cdn.luxe.digital/media/20231130000834/best-james-bond-cars-luxe-digital.jpg)",
+            "url(https://thechoice.escp.eu/wp-content/uploads/james-bond-daniel-craig-aston-martin-db5-01-1728x1080.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
 
       {/* Black Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent bg-opacity-90"></div>
 
       {/* Text Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-screen text-center text-white w-full">

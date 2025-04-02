@@ -1,8 +1,68 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { IoLogInOutline } from "react-icons/io5";
+import { IoIosClose } from "react-icons/io";
+import { useRouter } from "next/navigation";
+import searchResult from "@/src/hooks/searchResult";
+
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+  const [query, setQuery] = useState("");
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const closeSearchBar = () => {
+    setOpenSearch(false);
+  };
+  const router = useRouter();
+  const handleSubmit = () => {
+    const newQuery = encodeURIComponent(query);
+    router.push(`/searchResult/${newQuery}`);
+  };
   return (
-    <div className="navbar bg-grey/50 backdrop-blur-lg border-b border-white/20 fixed w-full z-50 ">
+    <div
+      className={`navbar fixed w-full z-50  transition-all duration-200 ease-in-out  ${
+        isScrolled
+          ? "bg-grey/50 backdrop-blur-lg border-b border-white/20 shadow-md"
+          : "bg-gradient-to-b from-black border-none"
+      }`}
+    >
+      {openSearch && (
+        <div className="top-14 w-full absolute customizedMd:top-1 customizedMd:w-1/2 customizedMd:right-12  md:right-52 md:w-5/12 lg:w-1/2 lg:right-64  xl:right-60 customizedXl:right-64 customizedXl:w-1/4  bg-transparent p-2 right-1">
+          <IoIosClose
+            className="text-5xl text-gray-700 sm:display"
+            onClick={closeSearchBar}
+          />
+
+          <input
+            value={query}
+            type="text"
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search..."
+            className="w-full border border-gray-300 p-2 mx-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg text-black"
+          />
+          <button
+            className="btn btn-primary bg-red-800 border-none text-white "
+            onClick={handleSubmit}
+          >
+            Search
+          </button>
+        </div>
+      )}
       <div className="flex w-full justify-between items-center px-4 lg:px-10">
         {/* Navbar Start */}
         <div className="navbar-start flex items-center">
@@ -115,7 +175,12 @@ const Navbar = () => {
               Moviely
             </Link>
             <div className="navbar-center hidden custom:flex custom:flex-row ">
-              <ul className="menu menu-horizontal px-4 text-white text-lg">
+              <ul
+                className={`menu menu-horizontal px-4 text-white text-lg ${
+                  openSearch &&
+                  "custom:hidden customizedXl:flex customizedXl:flex-row"
+                }`}
+              >
                 <li>
                   <Link
                     href="/"
@@ -192,9 +257,15 @@ const Navbar = () => {
             </div>
 
             {/* Navbar End */}
-            <div className="flex space-x-4 absolute justify-end right-0 me-3 custom:mt-2 items-center">
+            <div className="flex space-x-2 absolute justify-end right-0 me-3  items-center">
               {/* Search Icon */}
-              <div className="indicator text-white hidden md:block">
+
+              <div
+                className={`indicator text-white  mt-3 md:mt-0 cursor-pointer ${
+                  openSearch ? " customizedMd:hidden" : ""
+                }`}
+                onClick={() => setOpenSearch(!openSearch)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -210,7 +281,6 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-
               {/* Notification Button */}
               <button className="btn btn-ghost btn-circle hidden md:block">
                 <div className="indicator text-white">
@@ -237,9 +307,10 @@ const Navbar = () => {
                 </button>
               </Link>
               <Link href="/">
-                <button className="btn btn-outline border-none bg-white text-black">
+                <button className="btn btn-outline border-none bg-white text-black hidden md:block">
                   Login
                 </button>
+                <IoLogInOutline className="sm:block md:hidden text-3xl mt-3 sm:mt-3" />
               </Link>
 
               {/* <div className="dropdown dropdown-end">

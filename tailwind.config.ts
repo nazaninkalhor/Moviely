@@ -14,13 +14,13 @@ export default {
     screens: {
       'xs': '375px',
       'sm': '440px',
-
+      'customizedMd': '580',
       'md': '768px',
 
       'lg': '1024px',
       'custom': { 'min': '1142px' },
       'xl': '1280px',
-
+      'customizedXl': '1440',
       '2xl': '1536px',
     },
     extend: {

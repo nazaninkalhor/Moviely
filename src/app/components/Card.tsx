@@ -9,7 +9,6 @@ export interface CardItem {
   id: number;
   BackgroundImage: string;
   title: string;
-  description: string;
   popularity: number;
   overview: string;
   link: string;
@@ -18,7 +17,10 @@ export interface CardItem {
 const Card = (cardItem: CardItem) => {
   cardItem = cardItem.cardItem;
 
-  const newDescription = cardItem.description.split(" ").slice(0, 30).join(" ");
+  const newOverview = (cardItem.overview || "No overview available")
+    .split(" ")
+    .slice(0, 30)
+    .join(" ");
   return (
     cardItem && (
       <Link href={cardItem.link}>
@@ -40,7 +42,7 @@ const Card = (cardItem: CardItem) => {
                 {cardItem.title}
               </h2>
 
-              <p className="text-sm mb-4">{newDescription}...</p>
+              <p className="text-sm mb-4">{newOverview}...</p>
             </div>
           </div>
         </div>

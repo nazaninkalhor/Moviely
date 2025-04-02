@@ -10,11 +10,9 @@ const PopularSeries = async () => {
     id: o.id,
     BackgroundImage: "https://image.tmdb.org/t/p/w500" + o.poster_path,
     title: o.name,
-    description: o.overview,
     popularity: o.vote_average,
     overview: o.overview,
     link: `/detail/series/${o.id}`,
-
   }));
 
   const topMoviesCards = topMoviesCardItems.map((cardItem, index) => (
