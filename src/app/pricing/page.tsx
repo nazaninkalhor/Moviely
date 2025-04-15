@@ -13,7 +13,7 @@ const page = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-4 xl:px-6 md:pt-12">
         <div className="mb-10 space-y-4 px-6 md:px-0"></div>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <div className="flex flex-col items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900 border-b border-gray-700 shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
+          <div className="flex flex-col items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900  shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
             <h2 className="text-lg sm:text-xl font-medium text-white mb-2">
               1 month
             </h2>
@@ -32,7 +32,7 @@ const page = () => {
               <Link href="/">Subscribe</Link>
             </button>
           </div>
-          <div className="flex flex-col md:-mt-9 md:mb-9 items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900 border-b border-gray-700 shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
+          <div className="flex flex-col md:-mt-9 md:mb-9 items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900  shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
             <h2 className="text-lg sm:text-xl font-medium text-white mb-2">
               6 months
             </h2>
@@ -54,7 +54,7 @@ const page = () => {
               <Link href="/">Subscribe</Link>
             </button>
           </div>
-          <div className="flex flex-col items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900 border-b border-gray-700 shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
+          <div className="flex flex-col items-center aspect-auto p-4 sm:p-8 rounded-3xl bg-gradient-to-b to-transparent from-red-900 shadow-gray-600/10 shadow-none m-2 flex-1 max-w-md">
             <h2 className="text-lg sm:text-xl font-medium text-white mb-2">
               1 year
             </h2>

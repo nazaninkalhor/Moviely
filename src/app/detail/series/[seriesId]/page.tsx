@@ -4,6 +4,9 @@ import { MdStarRate } from "react-icons/md";
 import ReviewCards from "@/src/app/components/ReviewCards";
 import seriesReviews from "@/src/hooks/seriesReviews";
 import Image from "next/image";
+import CastList from "@/src/app/components/CastList";
+import Favorite from "@/src/app/components/Favorite";
+
 function truncateToFirstDecimal(number) {
   return Math.trunc(number * 10) / 10;
 }
@@ -31,7 +34,6 @@ const SeriesDetailPage = async ({
     const firstEpisodeYear = firstEpisodeAir[0];
     const lastEpisodeAir = result.last_air_date.split("-");
     const lastEpisodeYear = lastEpisodeAir[0];
-    console.log(result);
     if (!result) {
       return (
         <div className="text-white bg-red">
@@ -82,7 +84,7 @@ const SeriesDetailPage = async ({
                     </figure>
                   </li>
                   <li>
-                    <div className=" max-w-md ">
+                    <div className=" max-w-md lg:max-w-3xl">
                       <div className="flex flex-row ">
                         <h1 className="mb-2 text-3xl md:text-3xl font-bold text-white md:flex md:flex-row gap-2">
                           {result.name}
@@ -92,8 +94,9 @@ const SeriesDetailPage = async ({
                                 ({firstEpisodeYear})
                               </p>
                             ) : (
-                              <p className="font-medium text-md ">
+                              <p className="font-medium text-md flex flex-row ">
                                 ({firstEpisodeYear} - {lastEpisodeYear})
+                                <Favorite />
                               </p>
                             )}
                           </p>
@@ -132,7 +135,7 @@ const SeriesDetailPage = async ({
           </div>
         </div>
         <div>
-          <h2 className="text-white font-semibold text-4xl mb-4 ms-5">
+          <h2 className="text-white font-semibold text-4xl mb-4 mt-10 ms-5">
             Stream
           </h2>
           <div className="ms-10">
@@ -147,30 +150,7 @@ const SeriesDetailPage = async ({
               Cast
             </h2>
             <div className="grid grid-cols-1 mx-5 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {cast.map((p, id) => (
-                <div key={id} className="w-full shadow-lg rounded-xl bg-white">
-                  {p.profile_path ? (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500${p.profile_path}`}
-                      alt={p.name}
-                      className="w-full h-96 md:h-72 rounded-t-xl object-cover"
-                    />
-                  ) : (
-                    <div className="h-96 md:h-72 flex items-center justify-center bg-gray-300 rounded-t-xl">
-                      <p className="text-gray-700 font-semibold text-lg">
-                        {p.name[0]}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="p-4">
-                    <p className="font-semibold text-lg text-gray-900">
-                      {p.name}
-                    </p>
-                    <p className="text-sm text-gray-500">{p.character}</p>
-                  </div>
-                </div>
-              ))}
+              <CastList cast={cast} />
             </div>
           </div>
         </div>

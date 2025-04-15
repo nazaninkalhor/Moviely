@@ -1,7 +1,6 @@
 // src/app/news/page.tsx
 
 export default function NewsPage() {
-
   return (
     <div className="bg-gray-900 ">
       <div className="min-h-screen  text-white p-8 flex flex-col items-center">
@@ -17,6 +16,7 @@ export default function NewsPage() {
         </div>
         <div className="w-full max-w-4xl mt-10">
           <img
+            loading="lazy"
             src="https://i1.sndcdn.com/artworks-dV4nKpnTsSy13f8h-TmuLyQ-t1080x1080.jpg"
             alt="Movie"
             className="w-full h-full object-cover"
@@ -55,6 +55,7 @@ export default function NewsPage() {
         </div>
         <div className="w-full max-w-4xl mt-10">
           <img
+            loading="lazy"
             src="https://images.thedirect.com/media/photos/culpatuya.png"
             alt="Movie"
             className="w-full h-full"
@@ -84,6 +85,7 @@ export default function NewsPage() {
         </div>
         <div className="w-full max-w-4xl mt-10">
           <img
+            loading="lazy"
             src="https://149448860.v2.pressablecdn.com/wp-content/uploads/2024/11/Feature-Image-All-Websites-2024-11-01T135648.407.jpg"
             alt="Movie"
             className="w-full h-full"

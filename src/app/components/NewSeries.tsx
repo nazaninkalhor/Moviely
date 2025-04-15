@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import AutoCarousel from "./AutoCarousel";
 import newSeries from "@/src/hooks/useNewSeries";
-import { AiOutlineFolder } from "react-icons/ai";
+import { LuTv } from "react-icons/lu";
 const PopularSeries = async () => {
   const topMovies = (await newSeries()).results.slice(0, 18);
 
@@ -22,8 +22,10 @@ const PopularSeries = async () => {
   return (
     <>
       <div className="flex flex-row items-center ms-5 mb-8 mt-16">
-        <AiOutlineFolder className="text-3xl text-white" />
-        <h2 className="text-white font-semibold  text-3xl ms-2 ">New Series</h2>
+        <LuTv className="text-3xl text-white" />
+        <h3 className="text-white font-semibold  text-3xl ms-2 ">
+          Popular Series
+        </h3>
       </div>
       <div className=" md:ms-4">
         <AutoCarousel items={topMoviesCards} />

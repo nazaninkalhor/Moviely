@@ -7,13 +7,14 @@ const PriceSection = () => {
   return (
     <div className=" w-full relative">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 opacity-60"
+      <img
+        className="absolute inset-0 opacity-60 bg-fixed"
+        src="https://thechoice.escp.eu/wp-content/uploads/james-bond-daniel-craig-aston-martin-db5-01-1728x1080.jpg"
+        loading="lazy"
+        alt="James Bond Aston Martin"
         style={{
-          backgroundImage:
-            "url(https://thechoice.escp.eu/wp-content/uploads/james-bond-daniel-craig-aston-martin-db5-01-1728x1080.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          objectFit: "cover",
+          objectPosition: "center",
         }}
       />
 

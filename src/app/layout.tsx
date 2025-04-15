@@ -1,10 +1,13 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./globals.css"; // Include your Tailwind CSS or global styles
+import connectToDB from "./../../lib/mongoose";
 export const metadata = {
   title: "Moviely",
   description: "This is my Next.js app with Material-UI and Tailwind CSS",
 };
+
+connectToDB();
 
 export default function RootLayout({
   children,

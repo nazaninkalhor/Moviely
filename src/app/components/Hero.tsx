@@ -3,6 +3,7 @@ import { MdStarRate } from "react-icons/md";
 import Link from "next/link";
 
 export interface Banner {
+  id: number;
   BackgroundImage: string;
   title: string;
   description: string;
@@ -15,18 +16,18 @@ function truncateToFirstDecimal(number) {
 
 const Hero = (banner: Banner) => {
   banner = banner.banner;
-  console.log(banner);
   return (
     <>
       <div className="hero min-h-screen w-screen ">
         <div className="carousel-item relative w-full">
-          {/* Background Image */}
-          <div
-            className=" w-screen min-h-screen"
+          <img
+            loading="lazy"
+            className="w-screen min-h-screen"
+            src={banner.BackgroundImage}
+            alt="Banner"
             style={{
-              backgroundImage: `url("${banner.BackgroundImage}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              objectFit: "cover",
+              objectPosition: "center",
             }}
           />
 
@@ -50,11 +51,11 @@ const Hero = (banner: Banner) => {
                 {banner.description}
               </p>
               <button className="btn bg-red-800 border-none text-white">
-                <Link href="/">Watch Online</Link>
+                <Link href="/">Stream</Link>
               </button>
 
               <button className="btn btn-outline border-white border-2 text-white ms-3 ">
-                <Link href="/">More</Link>
+                <Link href={banner.link}>More</Link>
               </button>
             </div>
           </div>

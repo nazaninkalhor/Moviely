@@ -1,6 +1,7 @@
 import tmdbApiClient from "../app/service/tmdb-api-client";
 
-const moviesReviews = async (query: string) => {
+
+const searchResult = async (query: string) => {
 
     try {
         const response = await tmdbApiClient.get(`/search/multi?query=${query}&include_adult=false&language=en-US&page=1`);
@@ -12,4 +13,4 @@ const moviesReviews = async (query: string) => {
     }
 };
 
-export default moviesReviews;
+export default searchResult;

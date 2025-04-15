@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import AutoCarousel from "./AutoCarousel";
 import popularMovie from "@/src/hooks/usePopular";
-import { AiOutlineFire } from "react-icons/ai";
+import { BiCameraMovie } from "react-icons/bi";
 const PopularMovies = async () => {
   const topMovies = (await popularMovie()).results.slice(0, 18);
 
@@ -21,10 +21,10 @@ const PopularMovies = async () => {
   return (
     <>
       <div className="flex flex-row items-center ms-5 mb-8 mt-10">
-        <AiOutlineFire className="text-3xl text-white" />
-        <h2 className="text-white font-semibold  text-3xl ms-2 ">
+        <BiCameraMovie className="text-3xl text-white" />
+        <h3 className="text-white font-semibold  text-3xl ms-2 ">
           Popular Movies
-        </h2>
+        </h3>
       </div>
       <div className=" md:ms-4">
         <AutoCarousel items={topMoviesCards} />

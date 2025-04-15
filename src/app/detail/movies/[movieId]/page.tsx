@@ -4,6 +4,9 @@ import { MdStarRate } from "react-icons/md";
 import ReviewCards from "@/src/app/components/ReviewCards";
 import moviesReviews from "@/src/hooks/moviesReviews";
 import Image from "next/image";
+import CastList from "@/src/app/components/CastList";
+import Favorite from "@/src/app/components/Favorite";
+
 function truncateToFirstDecimal(number) {
   return Math.trunc(number * 10) / 10;
 }
@@ -20,13 +23,11 @@ const MovieDetailPage = async ({
       </div>
     );
   }
-
   try {
     const result = await detailPages(movieId);
     const credits = await moviesCredits(movieId);
     const reviews = await moviesReviews(movieId);
     const reviewResult = reviews.results;
-    console.log(result);
     const cast = credits.cast;
     if (!result) {
       return (
@@ -75,8 +76,8 @@ const MovieDetailPage = async ({
                   </li>
                   <li>
                     <div className=" max-w-md">
-                      <h1 className="mb-2 text-3xl md:text-3xl font-bold text-white">
-                        {result.title}
+                      <h1 className=" flex flex-row mb-2 text-3xl md:text-3xl font-bold text-white items-center">
+                        {result.title} <Favorite />
                       </h1>
                       <div className="xs:flex badge bg-yellow-600 border-0 py-4  text-white px-2 rounded-lg mb-2 flex-row items-center text-2xl hidden">
                         <MdStarRate className="me-1 text-xl" />
@@ -109,7 +110,7 @@ const MovieDetailPage = async ({
           </div>
         </div>
         <div>
-          <h2 className="text-white font-semibold text-4xl mb-4 ms-5">
+          <h2 className="text-white font-semibold text-4xl mb-4 mt-10 ms-5">
             Stream
           </h2>
           <div className="ms-10">
@@ -124,30 +125,7 @@ const MovieDetailPage = async ({
               Cast
             </h2>
             <div className="grid grid-cols-1 mx-5 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {cast.map((p, id) => (
-                <div key={id} className="w-full shadow-lg rounded-xl bg-white">
-                  {p.profile_path ? (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500${p.profile_path}`}
-                      alt={p.name}
-                      className="w-full h-96 md:h-72 rounded-t-xl object-cover"
-                    />
-                  ) : (
-                    <div className="h-96 md:h-72 flex items-center justify-center bg-gray-300 rounded-t-xl">
-                      <p className="text-gray-700 font-semibold text-lg">
-                        {p.name[0]}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="p-4">
-                    <p className="font-semibold text-lg text-gray-900">
-                      {p.name}
-                    </p>
-                    <p className="text-sm text-gray-500">{p.character}</p>
-                  </div>
-                </div>
-              ))}
+              <CastList cast={cast} />
             </div>
           </div>
         </div>

@@ -42,7 +42,7 @@ const Navbar = () => {
       }`}
     >
       {openSearch && (
-        <div className="top-14 w-full absolute customizedMd:top-1 customizedMd:w-1/2 customizedMd:right-12  md:right-52 md:w-5/12 lg:w-1/2 lg:right-64  xl:right-60 customizedXl:right-64 customizedXl:w-1/4  bg-transparent p-2 right-1">
+        <div className="top-14 w-full absolute customizedMd:top-1 customizedMd:w-1/2 customizedMd:right-12  md:right-20 md:w-7/12 lg:w-8/12 lg:right-28  xl:right-60 customizedXl:right-64 customizedXl:w-1/4  bg-transparent p-2 right-1">
           <IoIosClose
             className="text-5xl text-gray-700 sm:display"
             onClick={closeSearchBar}
@@ -99,7 +99,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/series"
                   className="text-white focus:text-red-500 focus:ring-0  "
                 >
                   Series
@@ -107,7 +107,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/stream"
                   className="text-white focus:text-red-500 focus:ring-0 "
                 >
                   Stream
@@ -115,46 +115,13 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/pricing"
                   className="text-white focus:text-red-500 focus:ring-0  "
                 >
-                  News
+                  Pricing
                 </Link>
               </li>
-              <li>
-                <details>
-                  <a className="text-white focus:text-red-500 focus:ring-0">
-                    Categories
-                  </a>
-                  <ul className="p-2 bg-slate-700">
-                    <h4 className="font-bold text-lg">Genres</h4>
-                    <li>
-                      <Link
-                        href="/"
-                        className="text-white focus:text-red-500 focus:ring-0 "
-                      >
-                        Drama
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/"
-                        className="text-white focus:text-red-500 focus:ring-0 "
-                      >
-                        Action
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/"
-                        className="text-white focus:text-red-500 focus:ring-0 "
-                      >
-                        Fantasy
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
-              </li>
+
               <li className="">
                 <Link
                   href="/contactUs"
@@ -191,7 +158,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="/"
+                    href="/series"
                     className="text-white focus:text-red-500 focus:ring-0  "
                   >
                     Series
@@ -199,7 +166,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="/"
+                    href="/stream"
                     className="text-white focus:text-red-500 focus:ring-0  "
                   >
                     Stream
@@ -207,44 +174,13 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="/"
+                    href="/pricing"
                     className="text-white focus:text-red-500 focus:ring-0   "
                   >
-                    News
+                    Pricing
                   </Link>
                 </li>
-                <li>
-                  <details>
-                    <summary>Categories</summary>
-                    <ul className="p-2 bg-slate-700">
-                      <h4 className="font-bold text-lg">Genres</h4>
-                      <li>
-                        <Link
-                          href="/"
-                          className="text-white focus:text-red-500 focus:ring-0  "
-                        >
-                          Drama
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/"
-                          className="text-white focus:text-red-500 focus:ring-0    "
-                        >
-                          Action
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/"
-                          className="text-white focus:text-red-500 focus:ring-0"
-                        >
-                          Fantasy
-                        </Link>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
+
                 <li className="">
                   <Link
                     href="/contactUs"
@@ -282,7 +218,7 @@ const Navbar = () => {
                 </svg>
               </div>
               {/* Notification Button */}
-              <button className="btn btn-ghost btn-circle hidden md:block">
+              {/* <button className="btn btn-ghost btn-circle hidden md:block">
                 <div className="indicator text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -300,14 +236,10 @@ const Navbar = () => {
                   </svg>
                   <span className="badge badge-xs badge-error indicator-item"></span>
                 </div>
-              </button>
-              <Link href="/pricing" className="font-semibold">
-                <button className="btn btn-ghost border-white border-2 text-white hidden md:block">
-                  Pricing
-                </button>
-              </Link>
-              <Link href="/">
-                <button className="btn btn-outline border-none bg-white text-black hidden md:block">
+              </button> */}
+
+              <Link href="/Auth/login">
+                <button className="btn btn-ghost border-none  text-white hidden md:block">
                   Login
                 </button>
                 <IoLogInOutline className="sm:block md:hidden text-3xl mt-3 sm:mt-3" />

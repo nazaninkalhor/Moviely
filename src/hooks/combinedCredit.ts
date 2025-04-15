@@ -1,8 +1,8 @@
 import tmdbApiClient from "../app/service/tmdb-api-client";
 
-const useMovieDetail = async (id: string) => {
+const usePersonDetail = async (id: string) => {
     try {
-        const response = await tmdbApiClient.get(`/movie/${id}?language=en-US`);
+        const response = await tmdbApiClient.get(`/person/${id}/combined_credits`);
         return response.data;
     } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -10,4 +10,4 @@ const useMovieDetail = async (id: string) => {
     }
 };
 
-export default useMovieDetail;
+export default usePersonDetail;
