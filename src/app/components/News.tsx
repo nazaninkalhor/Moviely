@@ -17,7 +17,7 @@ const News = () => {
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img
-            loading="lazy"
+              loading="lazy"
               src="https://i1.sndcdn.com/artworks-dV4nKpnTsSy13f8h-TmuLyQ-t1080x1080.jpg"
               alt="Movie"
               className="w-full h-48 object-cover"
@@ -46,7 +46,7 @@ const News = () => {
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img
-            loading="lazy"
+              loading="lazy"
               src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/10/chicago-pd-season-1.jpg"
               alt="Movie"
               className="w-full h-48 object-cover"
@@ -73,7 +73,7 @@ const News = () => {
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img
-            loading="lazy"
+              loading="lazy"
               src="https://www.forcesnews.com/sites/default/files/Image-ID-2H9B2RW-Daniel-Craig-as-James-Bond-in-Spectre%2C-2015-CREDIT-Columbia-Pictures-Entertainment-Picture-EXP-231124.jpg"
               alt="Movie"
               className="w-full h-48 object-cover"
@@ -98,8 +98,8 @@ const News = () => {
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img
-            loading="lazy"
-              src="https://lh5.googleusercontent.com/proxy/P-4Ds1ieCRCWdOKVJZO0XezCzpO3yuXIxKuOkg26Q1oiDiju_7iM1x0AQ-TE5f0TlaezayvNK9NtdksdRq0NXK_K8IYlgvx8d8GdpqnL2sRbMgx_3cyjU_JjS0QhhWJq9Be4oVUfKNTcvMXBBxrPBy8BsanLSR9m"
+              loading="lazy"
+              src="https://www.forcesnews.com/sites/default/files/Image-ID-2H9B2RW-Daniel-Craig-as-James-Bond-in-Spectre%2C-2015-CREDIT-Columbia-Pictures-Entertainment-Picture-EXP-231124.jpg"
               alt="Movie"
               className="w-full h-48 object-cover"
             />
@@ -109,11 +109,9 @@ const News = () => {
               Leonardo Dicaprio is returned to the Cinema
             </h2>
             <p className="text-sm md:text-base">
-              The love between Noah and Nick seems unwavering despite their
-              parents' attempts to separate them. But his job and her entry into
-              college open up their lives to new relationships that will shake
-              the foundations of both their relationship and the Leister family
-              itself.
+              Leonardo DiCaprio is an American actor and producer who emerged in
+              the 1990s as one of Hollywood’s leading performers, noted for his
+              portrayals of unconventional and complex characters.
             </p>
             <div className="card-actions justify-end">
               <button className="btn bg-red-800 border-none text-white">

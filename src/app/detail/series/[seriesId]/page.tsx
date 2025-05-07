@@ -6,6 +6,8 @@ import seriesReviews from "@/src/hooks/seriesReviews";
 import Image from "next/image";
 import CastList from "@/src/app/components/CastList";
 import Favorite from "@/src/app/components/Favorite";
+import Comments from "@/src/app/components/Comments";
+import StreamVideo from "../../../components/StreamVideo";
 
 function truncateToFirstDecimal(number) {
   return Math.trunc(number * 10) / 10;
@@ -85,24 +87,21 @@ const SeriesDetailPage = async ({
                   </li>
                   <li>
                     <div className=" max-w-md lg:max-w-3xl">
-                      <div className="flex flex-row ">
+                      <div className="flex flex-row">
                         <h1 className="mb-2 text-3xl md:text-3xl font-bold text-white md:flex md:flex-row gap-2">
                           {result.name}
-                          <p className="font-medium text-md ">
-                            {firstEpisodeYear == lastEpisodeYear ? (
-                              <p className="font-medium text-md ">
-                                ({firstEpisodeYear})
-                              </p>
-                            ) : (
-                              <p className="font-medium text-md flex flex-row ">
-                                ({firstEpisodeYear} - {lastEpisodeYear})
-                                <Favorite />
-                              </p>
-                            )}
-                          </p>
                         </h1>
+                        <div className="font-medium text-md flex items-center ml-2">
+                          {firstEpisodeYear == lastEpisodeYear ? (
+                            <span>({firstEpisodeYear})</span>
+                          ) : (
+                            <span className="flex items-center gap-1">
+                              ({firstEpisodeYear} - {lastEpisodeYear})
+                              <Favorite itemId={seriesId} type="series" />
+                            </span>
+                          )}
+                        </div>
                       </div>
-
                       <div className="xs:flex badge bg-yellow-600 border-0 py-4  text-white px-2 rounded-lg mb-2 flex-row items-center text-2xl hidden">
                         <MdStarRate className="me-1 text-xl" />
                         {truncateToFirstDecimal(result.vote_average)}
@@ -139,9 +138,7 @@ const SeriesDetailPage = async ({
             Stream
           </h2>
           <div className="ms-10">
-            <p className="font-medium text-xl text-red-400">
-              Please Signup or Login to Stream This Series!
-            </p>
+            <StreamVideo />
           </div>
         </div>
         <div>
@@ -169,10 +166,8 @@ const SeriesDetailPage = async ({
               There is no review for This Series yet!
             </p>
           )}
-          <div className="mt-10 text-center">
-            <p className="text-red-400 font-semibold text-3xl">
-              Please Signup or Login to Leave your Review Here!
-            </p>
+          <div className="mt-3">
+            <Comments />
           </div>
         </div>
       </>

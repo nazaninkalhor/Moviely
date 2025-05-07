@@ -1,49 +1,47 @@
+"use client";
 import React from "react";
-import { RiBaseStationLine } from "react-icons/ri";
+import { RiBaseStationLine, Ri24HoursFill } from "react-icons/ri";
 import { MdLocalMovies } from "react-icons/md";
-import { Ri24HoursFill } from "react-icons/ri";
 import Link from "next/link";
+
 const PriceSection = () => {
   return (
-    <div className=" w-full relative">
+    <div className="relative w-full h-[500px]">
       {/* Background Image */}
-      <img
-        className="absolute inset-0 opacity-60 bg-fixed"
-        src="https://thechoice.escp.eu/wp-content/uploads/james-bond-daniel-craig-aston-martin-db5-01-1728x1080.jpg"
-        loading="lazy"
-        alt="James Bond Aston Martin"
+      <div
+        className="absolute inset-0 bg-fixed bg-center bg-cover bg-no-repeat z-0"
         style={{
-          objectFit: "cover",
-          objectPosition: "center",
+          backgroundImage:
+            "url('https://thechoice.escp.eu/wp-content/uploads/james-bond-daniel-craig-aston-martin-db5-01-1728x1080.jpg')",
         }}
       />
 
-      {/* Black Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent bg-opacity-90"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Text Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-screen text-center text-white w-full">
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center px-4">
         <Link
           href="/"
           className="text-4xl sm:text-6xl font-extrabold text-red-700"
         >
           Moviely
         </Link>
-        <ul className=" mx-4 max-w-md text-sm md:text-lg font-semibold flex gap-x-10 mt-10 md:max-w-lg  md:items-center items-start">
-          <li className="flex  md:items-center items-start ">
-            <Ri24HoursFill className=" md:me-1 font-bold text-xl " /> 24/7
-            Support
+
+        <ul className="mt-8 mx-auto flex flex-col md:flex-row gap-4 md:gap-x-10 text-sm md:text-lg font-semibold items-center">
+          <li className="flex items-center gap-2">
+            <Ri24HoursFill className="text-xl" /> 24/7 Support
           </li>
-          <li className="flex  md:items-center items-start">
-            <MdLocalMovies className="md:me-1 font-bold text-xl" /> +3000 Titles
+          <li className="flex items-center gap-2">
+            <MdLocalMovies className="text-xl" /> +3000 Titles
           </li>
-          <li className="flex  md:items-center items-start">
-            <RiBaseStationLine className="  font-bold text-xl md:me-1" /> Online
-            Watch
+          <li className="flex items-center gap-2">
+            <RiBaseStationLine className="text-xl" /> Online Watch
           </li>
         </ul>
+
         <Link href="/pricing">
-          <button className="bg-red-800 btn border-none text-white mt-10 md:text-xl">
+          <button className="mt-8 bg-red-800 text-white py-2 px-6 rounded-md text-lg hover:bg-red-700 transition">
             See Subscriptions
           </button>
         </Link>

@@ -1,16 +1,27 @@
-import mongoose, { Schema, Document, models, model } from 'mongoose';
+import { NextResponse, NextRequest } from "next/server";
+import connectToDB from "@/lib/mongoose";
+import User from "@/models/User";
 
-export interface IUser extends Document {
-  email: string;
-  password: string;
-  name: string;
+export async function Get() {
+  try {
+    await connectToDB();
+    const users = await User.find({}, "username email password");
+    return NextResponse.json(users, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: "Server Error", error }, { status: 500 })
+  }
 }
 
-const UserSchema: Schema = new Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  name: { type: String, required: true },
-}, { timestamps: true });
+export async function Post(req: NextRequest) {
+  try {
+    await connectToDB();
+    const { username, email, password } = await req.json();
+    const newUser = new User({ username, email, password });
+    await newUser.save();
+    return NextResponse.json(newUser, { status: 201 });
+  }
 
-const User = models.User || model<IUser>('User', UserSchema);
-export default User;
+  catch (error) {
+    return NextResponse.json({ message: "Server Error", error }, { status: 500 })
+  }
+}

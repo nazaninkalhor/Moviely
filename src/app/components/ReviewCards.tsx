@@ -24,16 +24,16 @@ const ReviewCards = (review) => {
         </div>
 
         <div className="flex flex-col gap-2 pb-4 pe-3">
-          <div className="flex flex-row items-baseline gap-2">
+          <div className="md:flex md:flex-row items-baseline gap-2">
             <h4 className="text-xl font-bold text-red-800 mt-4 ms-2">
               {newReview.author_details.username}
             </h4>
-            <p className="text-red-300 text-md font-medium">
+            <p className="text-red-300 text-md font-medium ms-2">
               {newReview.author}
             </p>
           </div>
 
-          <p className="text-gray-500">{newReview.content}</p>
+          <p className="text-gray-500 w-5/6 sm:w-full">{newReview.content}</p>
         </div>
       </div>
     </div>

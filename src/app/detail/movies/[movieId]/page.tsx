@@ -6,7 +6,8 @@ import moviesReviews from "@/src/hooks/moviesReviews";
 import Image from "next/image";
 import CastList from "@/src/app/components/CastList";
 import Favorite from "@/src/app/components/Favorite";
-
+import Comments from "@/src/app/components/Comments";
+import StreamVideo from "@/src/app/components/StreamVideo";
 function truncateToFirstDecimal(number) {
   return Math.trunc(number * 10) / 10;
 }
@@ -23,6 +24,7 @@ const MovieDetailPage = async ({
       </div>
     );
   }
+
   try {
     const result = await detailPages(movieId);
     const credits = await moviesCredits(movieId);
@@ -77,7 +79,8 @@ const MovieDetailPage = async ({
                   <li>
                     <div className=" max-w-md">
                       <h1 className=" flex flex-row mb-2 text-3xl md:text-3xl font-bold text-white items-center">
-                        {result.title} <Favorite />
+                        {result.title}{" "}
+                        <Favorite itemId={movieId} type="movie" />
                       </h1>
                       <div className="xs:flex badge bg-yellow-600 border-0 py-4  text-white px-2 rounded-lg mb-2 flex-row items-center text-2xl hidden">
                         <MdStarRate className="me-1 text-xl" />
@@ -114,9 +117,7 @@ const MovieDetailPage = async ({
             Stream
           </h2>
           <div className="ms-10">
-            <p className="font-medium text-xl text-red-400">
-              Please Signup or Login to Stream This Movie!
-            </p>
+            <StreamVideo />
           </div>
         </div>
         <div>
@@ -146,9 +147,7 @@ const MovieDetailPage = async ({
           )}
 
           <div className="mt-10 text-center">
-            <p className="text-red-400 font-semibold text-3xl">
-              Please Signup or Login to Leave your Review Here!
-            </p>
+            <Comments />
           </div>
         </div>
       </>

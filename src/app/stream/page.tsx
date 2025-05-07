@@ -1,7 +1,7 @@
 import React from "react";
 import PopularMovies from "../components/PopularMovies";
 import PopularSeries from "../components/NewSeries";
-
+import StreamVideo from "../components/StreamVideo";
 const page = () => {
   return (
     <div className="w-full">
@@ -25,20 +25,7 @@ const page = () => {
       <p className="mb-2 font-semibold text-xl text-center mt-5">
         Watch your favorite movies or series on Moviely now!
       </p>
-      <div className="relative w-full max-w-4xl mx-auto mt-10">
-        <div className="absolute inset-0 blur-2xl rounded-2xl bg-gradient-to-br from-red-500/20 via-white/10 to-blue-500/20 z-0 scale-110"></div>
-
-        <div className="relative z-10 overflow-hidden rounded-xl shadow-2xl border-4 shadow-white/55 border-white/10">
-          <video
-            preload="true"
-            src="/videos/JohnWick.mp4"
-            controls
-            className="w-full h-full object-cover"
-            poster="/images/john-wick-thumb.jpg"
-          />
-        </div>
-      </div>
-
+      <StreamVideo />
       <div className="mt-12 px-4 space-y-10">
         <PopularMovies />
         <PopularSeries />

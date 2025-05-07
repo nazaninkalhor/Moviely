@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 import { IoLogInOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
 import { useRouter } from "next/navigation";
-import searchResult from "@/src/hooks/searchResult";
+import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
+  const { user, loading } = useUser();
+  const { logout } = useUser();
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -19,7 +22,6 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -28,11 +30,16 @@ const Navbar = () => {
   const closeSearchBar = () => {
     setOpenSearch(false);
   };
-  const router = useRouter();
+  const handleLogout = async () => {
+    await logout();
+    router.push("/");
+  };
   const handleSubmit = () => {
     const newQuery = encodeURIComponent(query);
     router.push(`/searchResult/${newQuery}`);
   };
+  if (loading) return null;
+
   return (
     <div
       className={`navbar fixed w-full z-50  transition-all duration-200 ease-in-out  ${
@@ -53,7 +60,7 @@ const Navbar = () => {
             type="text"
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search..."
-            className="w-full border border-gray-300 p-2 mx-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg text-black"
+            className="w-full border border-gray-300 p-2 mx-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg text-white"
           />
           <button
             className="btn btn-primary bg-red-800 border-none text-white "
@@ -217,64 +224,48 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-              {/* Notification Button */}
-              {/* <button className="btn btn-ghost btn-circle hidden md:block">
-                <div className="indicator text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+
+              {!user ? (
+                <Link href="/Auth/login">
+                  <button className="btn btn-ghost border-none  text-white hidden md:block">
+                    Login
+                  </button>
+                  <IoLogInOutline className="sm:block md:hidden text-3xl mt-3 sm:mt-3" />
+                </Link>
+              ) : (
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                    />
-                  </svg>
-                  <span className="badge badge-xs badge-error indicator-item"></span>
-                </div>
-              </button> */}
-
-              <Link href="/Auth/login">
-                <button className="btn btn-ghost border-none  text-white hidden md:block">
-                  Login
-                </button>
-                <IoLogInOutline className="sm:block md:hidden text-3xl mt-3 sm:mt-3" />
-              </Link>
-
-              {/* <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="avatar placeholder">
-                    <div className="text-neutral-content w-full p-3 rounded-full bg-red-900">
-                      <span>SY</span>
+                    <div className="avatar placeholder">
+                      <div className="w-10 h-10 rounded-full overflow-hidden bg-red-900">
+                        <img
+                          loading="lazy"
+                          src="/profile.jpg"
+                          alt="profile"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  >
+                    <li>
+                      <Link href="/dashboard" className="justify-between">
+                        Profile
+                      </Link>
+                    </li>
+
+                    <li>
+                      <button onClick={handleLogout}>Logout</button>
+                    </li>
+                  </ul>
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <a>Logout</a>
-                  </li>
-                </ul>
-              </div> */}
+              )}
             </div>
           </div>
 
