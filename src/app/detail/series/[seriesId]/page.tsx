@@ -1,7 +1,6 @@
 import seriesCredits from "@/src/hooks/seriesCredits";
 import seriesDetails from "../../../../hooks/seriesDetails";
 import { MdStarRate } from "react-icons/md";
-import ReviewCards from "@/src/app/components/ReviewCards";
 import seriesReviews from "@/src/hooks/seriesReviews";
 import Image from "next/image";
 import CastList from "@/src/app/components/CastList";
@@ -97,7 +96,7 @@ const SeriesDetailPage = async ({
                           ) : (
                             <span className="flex items-center gap-1">
                               ({firstEpisodeYear} - {lastEpisodeYear})
-                              <Favorite itemId={seriesId} type="series" />
+                              <Favorite itemId={seriesId} typeId="series" />
                             </span>
                           )}
                         </div>
@@ -155,19 +154,13 @@ const SeriesDetailPage = async ({
           <h2 className="text-white font-semibold text-4xl mb-4 ms-5">
             Reviews
           </h2>
-          {reviewResult.length > 0 ? (
-            <div className="text-white font-semibold text-md">
-              {reviewResult.map((r, id) => (
-                <ReviewCards key={id} review={r} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-white ms-5">
-              There is no review for This Series yet!
-            </p>
-          )}
+
           <div className="mt-3">
-            <Comments />
+            <Comments
+              postId={seriesId}
+              typeId={"series"}
+              tmdbReviews={reviewResult}
+            />
           </div>
         </div>
       </>

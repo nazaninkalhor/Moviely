@@ -1,7 +1,6 @@
 import moviesCredits from "@/src/hooks/moviesCredits";
 import detailPages from "../../../../hooks/movieDetails";
 import { MdStarRate } from "react-icons/md";
-import ReviewCards from "@/src/app/components/ReviewCards";
 import moviesReviews from "@/src/hooks/moviesReviews";
 import Image from "next/image";
 import CastList from "@/src/app/components/CastList";
@@ -80,7 +79,7 @@ const MovieDetailPage = async ({
                     <div className=" max-w-md">
                       <h1 className=" flex flex-row mb-2 text-3xl md:text-3xl font-bold text-white items-center">
                         {result.title}{" "}
-                        <Favorite itemId={movieId} type="movie" />
+                        <Favorite itemId={movieId} typeId="movie" />
                       </h1>
                       <div className="xs:flex badge bg-yellow-600 border-0 py-4  text-white px-2 rounded-lg mb-2 flex-row items-center text-2xl hidden">
                         <MdStarRate className="me-1 text-xl" />
@@ -134,20 +133,13 @@ const MovieDetailPage = async ({
           <h2 className="text-white font-semibold text-4xl mb-4 ms-5">
             Reviews
           </h2>
-          {reviewResult.length > 0 ? (
-            <div className="text-white font-semibold text-md">
-              {reviewResult.map((r, id) => (
-                <ReviewCards key={id} review={r} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-white ms-5">
-              There is no review for this movie yet!
-            </p>
-          )}
 
           <div className="mt-10 text-center">
-            <Comments />
+            <Comments
+              postId={movieId}
+              typeId={"movie"}
+              tmdbReviews={reviewResult}
+            />
           </div>
         </div>
       </>

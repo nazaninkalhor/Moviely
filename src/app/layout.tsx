@@ -1,7 +1,6 @@
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import { UserProvider } from "./context/UserContext";
-import "./globals.css"; // Include your Tailwind CSS or global styles
+import "./globals.css";
+import ClientLayout from "./components/ClientLayout";
+
 export const metadata = {
   title: "Moviely",
   description: "This is my Next.js app with Material-UI and Tailwind CSS",
@@ -14,12 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" text-white flex flex-col min-h-screen">
-        <UserProvider>
-          <Navbar />
-          <main className="flex-grow ">{children}</main>
-          <Footer />
-        </UserProvider>
+      <body className="text-white flex flex-col min-h-screen">
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

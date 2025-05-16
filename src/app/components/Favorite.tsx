@@ -1,43 +1,59 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { toast } from "react-toastify";
 import { useUser } from "../context/UserContext";
 
-type FavoriteProps = {
-  itemId: string;
-  type: "movie" | "series";
-};
-
-const Favorite = ({ itemId, type }: FavoriteProps) => {
+const Favorite = ({ itemId, typeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const { user } = useUser();
-  console.log("this is user", user);
+
+  const checkIfLiked = async () => {
+    if (!user) return;
+    try {
+      const res = await fetch(
+        `/api/Likes?userId=${user._id}&postId=${itemId}&typeId=${typeId}`
+      );
+      console.log(user._id);
+      const data = await res.json();
+      setIsFavorite(data.liked);
+    } catch (error) {
+      console.error("Error checking like status:", error);
+    }
+  };
+
+  useEffect(() => {
+    checkIfLiked();
+  }, [user, itemId]);
+
   const handleLike = async () => {
-    if (!user || !user.id) {
+    if (!user) {
       toast.error("Please login first!");
       return;
     }
 
     try {
-      const res = await fetch("/api/users/like", {
+      const res = await fetch("/api/Likes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          userId: user.id,
-          itemId,
-          type,
+          userId: user._id,
+          postId: itemId,
+          typeId,
         }),
       });
 
+      const data = await res.json();
       if (res.ok) {
-        setIsFavorite(true);
-        toast.success("Added to favorites");
+        setIsFavorite(data.liked);
+        toast.success(
+          data.liked ? "Added to favorites" : "Removed from favorites"
+        );
       } else {
-        toast.error("Something went wrong");
+        toast.error(data.message || "Something went wrong");
       }
     } catch (error) {
-      console.error(error);
+      console.log("Like toggle error:", error);
       toast.error("Network error");
     }
   };

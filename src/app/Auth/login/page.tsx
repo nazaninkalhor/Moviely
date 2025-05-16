@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "../../context/UserContext";
+import { setUserContext } from "@/lib/helpers";
 
 const Page = () => {
   const router = useRouter();
@@ -10,7 +11,18 @@ const Page = () => {
   const [password, setPassword] = useState("S123!@#s");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const { login } = useUser();
+
+  const login = async (email: string, password: string) => {
+    const res = await fetch("/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!res.ok) throw new Error("Login failed");
+    await setUserContext(setLoading);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +76,7 @@ const Page = () => {
           </button>
           {message && <p className="text-sm text-center">{message}</p>}
           <p>
-            Don't have an account ?{" "}
+            Don't have an account ?
             <Link href="/Auth/signup" className="underline">
               Sign Up
             </Link>

@@ -13,7 +13,6 @@ export async function GET(req: NextRequest) {
         const token = req.cookies.get("token")?.value;
         if (!token) {
             return NextResponse.json({ message: "Unauthorized " }, { status: 401 })
-
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as TokenPayload
@@ -23,10 +22,9 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ message: "User not found" }, { status: 404 })
         }
 
-        return NextResponse.json({ user }, { status: 200 })
+        return NextResponse.json({user}, { status: 200 })
     } catch (error) {
         console.error("User Fetch Error:", error);
         return NextResponse.json({ message: "Internal Error" }, { status: 500 });
     }
-
 }

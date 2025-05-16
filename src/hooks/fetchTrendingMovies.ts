@@ -1,6 +1,6 @@
 import fetchData from "./fetchData";
 
-const trends = async () => {
+const fetchTrendingMovies = async () => {
     const movies = await fetchData(
         "/trending/movie/day?language=en-US"
     );
@@ -8,4 +8,4 @@ const trends = async () => {
     return movies;
 }
 
-export default trends;
+export default fetchTrendingMovies;

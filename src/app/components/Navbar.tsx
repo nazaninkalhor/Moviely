@@ -11,9 +11,14 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
   const { user, loading } = useUser();
-  const { logout } = useUser();
   const router = useRouter();
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }, [user]);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -31,7 +36,11 @@ const Navbar = () => {
     setOpenSearch(false);
   };
   const handleLogout = async () => {
-    await logout();
+    await fetch("/api/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    setIsLogged(false);
     router.push("/");
   };
   const handleSubmit = () => {

@@ -1,5 +1,4 @@
 import User from '@/models/User';
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import connectToDB from '@/lib/mongoose';
@@ -18,7 +17,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: "Username already exists" }, { status: 409 });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, email, password: hashedPassword });
+        const newUser = new User({ username, email, password: hashedPassword, likedItems: [] });
         if (!password || !email || !username) {
             return NextResponse.json({ message: "Missing fields" }, { status: 400 });
         }
@@ -29,16 +28,17 @@ export async function POST(req: NextRequest) {
         })
         const response = NextResponse.json({ message: "User Created", user: { email: newUser.email, username: newUser.username } }, { status: 201 })
 
-        response.cookies.set("Token", token, {
+        response.cookies.set("token", token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "lax",
             maxAge: 60 * 60 * 24 * 7,
             path: "/",
         }
         );
         return response;
     } catch (error) {
+        console.error("Register API Error:", error);
         return NextResponse.json({ message: "Server Error", error }, { status: 500 });
     }
 }

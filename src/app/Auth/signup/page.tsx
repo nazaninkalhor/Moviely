@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "../../context/UserContext";
 
 const Page = () => {
   const router = useRouter();
@@ -11,7 +10,31 @@ const Page = () => {
   const [password, setPassword] = useState("S123!@#s");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const { register } = useUser();
+
+  const register = async (
+    username: string,
+    email: string,
+    password: string,
+    likedItems: []
+  ) => {
+    const res = await fetch("/api/register", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        likedItems,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.message || "Registration failed");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +42,7 @@ const Page = () => {
     setMessage("");
 
     try {
-      await register(username, email, password);
+      await register(username, email, password, []);
       setMessage("✅ User created successfully!");
       setUserName("");
       setEmail("");
@@ -31,6 +54,7 @@ const Page = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="justify-self-stretch items-center mt-20 mx-3 md:mt-40">
       <div className="backdrop-blur-md bg-gradient-to-bl from-red-900 to-transparent rounded-xl p-8 w-full max-w-sm shadow-2xl justify-self-center ">
@@ -80,7 +104,7 @@ const Page = () => {
           </button>
           {message && <p className="text-sm text-center">{message}</p>}
           <p>
-            Do you have an account ?{" "}
+            Do you have an account?{" "}
             <Link href="/Auth/login" className="underline">
               Sign in
             </Link>

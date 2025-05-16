@@ -2,9 +2,9 @@ import React from "react";
 import Card from "./Card";
 import AutoCarousel from "./AutoCarousel";
 import { AiOutlineStar } from "react-icons/ai";
-import trends from "@/src/hooks/useTrend";
+import fetchTrendingMovies from "@/src/hooks/fetchTrendingMovies";
 const Trends = async () => {
-  const topMovies = (await trends()).results
+  const topMovies = (await fetchTrendingMovies()).results
     .filter((o) => o.overview != "")
     .slice(0, 18);
 
