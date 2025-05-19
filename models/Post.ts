@@ -4,6 +4,8 @@ const commentSchema = new Schema({
     userId: { type: String, required: true },
     username: { type: String, required: true },
     postId: { type: String, required: true },
+    postPosterPath: { type: String, required: true },
+    postName: { type: String, required: true },
     content: { type: String, required: true },
     createdAt: { type: String, required: true },
 });

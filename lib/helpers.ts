@@ -9,17 +9,23 @@ export function parseQueryParams(url) {
     }, {});
 }
 
-export async function setUserContext(setLoading) {
-    setLoading(true);
+export async function setUserContext() {
     try {
-        localStorage.removeItem("cachedUser");
         const res = await fetch("/api/user", { credentials: "include" });
+
+        if (!res.ok) {
+            localStorage.removeItem("cachedUser");
+            return;
+        }
+
         const data = await res.json();
-        localStorage.setItem("cachedUser", JSON.stringify(data.user));
-        if (!res.ok) throw new Error("unauthenticated");
+
+        if (data?.user) {
+            localStorage.setItem("cachedUser", JSON.stringify(data.user));
+        } else {
+            localStorage.removeItem("cachedUser");
+        }
     } catch {
-        throw new Error("Authorization Server Error!");
-    } finally {
-        setLoading(false);
+        localStorage.removeItem("cachedUser");
     }
-};
+}

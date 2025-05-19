@@ -96,7 +96,12 @@ const SeriesDetailPage = async ({
                           ) : (
                             <span className="flex items-center gap-1">
                               ({firstEpisodeYear} - {lastEpisodeYear})
-                              <Favorite itemId={seriesId} typeId="series" />
+                              <Favorite
+                                itemId={seriesId}
+                                typeId="series"
+                                postName={result.name}
+                                postPosterPath={result.poster_path}
+                              />
                             </span>
                           )}
                         </div>
@@ -157,6 +162,8 @@ const SeriesDetailPage = async ({
 
           <div className="mt-3">
             <Comments
+              postName={result.name}
+              postPosterPath={result.poster_path}
               postId={seriesId}
               typeId={"series"}
               tmdbReviews={reviewResult}

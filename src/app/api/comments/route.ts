@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     try {
         await connectToDB();
-        const { userId, username, postId, typeId, content } = await req.json();
+        const { userId, username, postId, typeId, content, postPosterPath, postName } = await req.json();
         const post = await Post.findOne({ postId, typeId });
 
         if (post) {
@@ -45,6 +45,8 @@ export async function POST(req: NextRequest) {
                 username,
                 postId,
                 content,
+                postPosterPath,
+                postName,
                 createdAt: new Date().toISOString(),
             });
 
@@ -60,6 +62,8 @@ export async function POST(req: NextRequest) {
                 userId,
                 username,
                 postId,
+                postPosterPath,
+                postName,
                 content,
                 createdAt: new Date().toISOString(),
             }],

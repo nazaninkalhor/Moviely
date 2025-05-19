@@ -36,16 +36,24 @@ const Navbar = () => {
   const closeSearchBar = () => {
     setOpenSearch(false);
   };
-  const handleLogout = async () => {
-    await fetch("/api/logout", {
-      method: "POST",
-      credentials: "include",
-    });
-    await setUserContext(setLoading);
 
-    setIsLogged(false);
-    router.push("/");
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/logout", { method: "GET", credentials: "include" });
+      await setUserContext();
+      setIsLogged(false);
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
   };
+  useEffect(() => {
+    const user = localStorage.getItem("cachedUser");
+
+    if (!user) {
+      router.push("/");
+    }
+  }, [user, handleLogout]);
+
   const handleSubmit = () => {
     const newQuery = encodeURIComponent(query);
     router.push(`/searchResult/${newQuery}`);
@@ -255,7 +263,7 @@ const Navbar = () => {
                       <div className="w-10 h-10 rounded-full overflow-hidden bg-red-900">
                         <img
                           loading="lazy"
-                          src="/profile.jpg"
+                          src="/images/Profile.jpg"
                           alt="profile"
                           className="w-full h-full object-cover"
                         />

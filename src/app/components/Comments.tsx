@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useUser } from "../context/UserContext";
 import ReviewCards from "./ReviewCards";
 
-const Comments = ({ postId, typeId, tmdbReviews }) => {
+const Comments = ({
+  postPosterPath,
+  postName,
+  postId,
+  typeId,
+  tmdbReviews,
+}) => {
   const { user, loading } = useUser();
   const [content, setContent] = useState("");
   const [localReviews, setLocalReviews] = useState([]);
@@ -14,7 +20,7 @@ const Comments = ({ postId, typeId, tmdbReviews }) => {
     const fetchComments = async () => {
       try {
         const res = await fetch(
-          `/api/comments?postId=${postId}&typeId=${typeId}`
+          `/api/comments?postId=${postId}&typeId=${typeId}&postName=${postName}&postPosterPath=${postPosterPath}`
         );
         const data = await res.json();
 
@@ -35,11 +41,27 @@ const Comments = ({ postId, typeId, tmdbReviews }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Sending comment", {
+        userId,
+        postId,
+        postName,
+        postPosterPath,
+        typeId,
+        content,
+      });
       const res = await fetch("/api/comments", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, username, postId, content, typeId }),
+        body: JSON.stringify({
+          userId,
+          username,
+          postId,
+          content,
+          typeId,
+          postName,
+          postPosterPath,
+        }),
       });
 
       const data = await res.json();

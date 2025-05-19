@@ -8,6 +8,8 @@ const userSchema = new Schema({
     {
       postId: { type: String, required: true },
       typeId: { type: String, enum: ["movie", "series"], required: true },
+      postName: { type: String, required: true },
+      postPosterPath: { type: String, required: true }
     }
   ],
 });

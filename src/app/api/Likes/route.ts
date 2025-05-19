@@ -8,9 +8,9 @@ export async function POST(req: NextRequest) {
     try {
         await connectToDB();
 
-        const { userId, postId, typeId } = await req.json();
+        const { userId, postId, typeId, postName, postPosterPath } = await req.json();
 
-        if (!userId || !postId || !typeId) {
+        if (!userId || !postId || !typeId || !postName || !postPosterPath) {
             return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
         }
 
@@ -20,7 +20,9 @@ export async function POST(req: NextRequest) {
         }
 
         const alreadyLiked = user.likedItems.some(
-            (item) => item.postId === postId && item.typeId === typeId
+            (item) =>
+                item.postId.toString() === postId.toString() &&
+                item.typeId === typeId
         );
 
         if (alreadyLiked) {
@@ -32,7 +34,7 @@ export async function POST(req: NextRequest) {
         } else {
             await User.updateOne(
                 { _id: userId },
-                { $push: { likedItems: { postId, typeId } } }
+                { $push: { likedItems: { postId, typeId, postName, postPosterPath } } }
             );
             return NextResponse.json({ liked: true });
         }

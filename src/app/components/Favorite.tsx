@@ -4,17 +4,23 @@ import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { toast } from "react-toastify";
 import { useUser } from "../context/UserContext";
 
-const Favorite = ({ itemId, typeId }) => {
+const Favorite = ({ itemId, typeId, postName, postPosterPath }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const { user } = useUser();
-
   const checkIfLiked = async () => {
     if (!user) return;
     try {
       const res = await fetch(
-        `/api/Likes?userId=${user._id}&postId=${itemId}&typeId=${typeId}`
+        `/api/Likes?userId=${user._id}&postId=${itemId}&typeId=${typeId}&postName=${postName}&postPosterPath=${postPosterPath}`
       );
-      console.log(user._id);
+      console.log(
+        "this is it",
+        user._id,
+        itemId,
+        typeId,
+        postName,
+        postPosterPath
+      );
       const data = await res.json();
       setIsFavorite(data.liked);
     } catch (error) {
@@ -40,6 +46,8 @@ const Favorite = ({ itemId, typeId }) => {
           userId: user._id,
           postId: itemId,
           typeId,
+          postName,
+          postPosterPath,
         }),
       });
 

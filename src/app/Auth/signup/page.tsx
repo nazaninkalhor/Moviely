@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUser } from "../../context/UserContext";
 
 const Page = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const Page = () => {
   const [password, setPassword] = useState("S123!@#s");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
+  const { user } = useUser;
   const register = async (
     username: string,
     email: string,
@@ -47,7 +48,9 @@ const Page = () => {
       setUserName("");
       setEmail("");
       setPassword("");
-      router.push("/dashboard");
+      if (user) {
+        router.push("/dashboard");
+      }
     } catch (err: any) {
       setMessage(`❌ ${err.message}`);
     } finally {

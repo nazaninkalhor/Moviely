@@ -8,6 +8,7 @@ const SearchResultPage = async ({
   const result = await searchResult(queryName);
 
   const newResult = result.results;
+  
   const searchedItem = newResult.map((o) => ({
     id: o.id,
     overview: o.overview || " ",

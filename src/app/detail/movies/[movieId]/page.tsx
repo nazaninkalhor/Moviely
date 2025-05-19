@@ -78,8 +78,13 @@ const MovieDetailPage = async ({
                   <li>
                     <div className=" max-w-md">
                       <h1 className=" flex flex-row mb-2 text-3xl md:text-3xl font-bold text-white items-center">
-                        {result.title}{" "}
-                        <Favorite itemId={movieId} typeId="movie" />
+                        {result.title}
+                        <Favorite
+                          itemId={movieId}
+                          typeId="movies"
+                          postName={result.title}
+                          postPosterPath={result.poster_path}
+                        />
                       </h1>
                       <div className="xs:flex badge bg-yellow-600 border-0 py-4  text-white px-2 rounded-lg mb-2 flex-row items-center text-2xl hidden">
                         <MdStarRate className="me-1 text-xl" />
@@ -136,6 +141,8 @@ const MovieDetailPage = async ({
 
           <div className="mt-10 text-center">
             <Comments
+              postName={result.title}
+              postPosterPath={result.poster_path}
               postId={movieId}
               typeId={"movie"}
               tmdbReviews={reviewResult}

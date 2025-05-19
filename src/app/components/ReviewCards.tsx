@@ -19,7 +19,7 @@ const ReviewCards = (review) => {
             <img
               loading="lazy"
               className="absolute left-2 top-2 w-full h-full object-cover object-center transition duration-50 rounded-full "
-              src="/Profile.jpg"
+              src="/images/Profile.jpg"
             />
           )}
         </div>
