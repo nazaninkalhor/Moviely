@@ -32,3 +32,4 @@ Rendering: Server-Side Rendering (SSR)
 ☁️ Deployed on Vercel
 
 📷 Screenshots
+
