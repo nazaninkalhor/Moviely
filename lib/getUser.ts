@@ -1,4 +1,3 @@
-// lib/getUser.ts
 import jwt from 'jsonwebtoken'
 import { NextRequest } from 'next/server'
 import User from '@/models/User'

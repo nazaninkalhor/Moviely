@@ -88,7 +88,6 @@ const ProfilePage = () => {
         {activeTab === "account" && (
           <div>
             <ul className="md:flex md:flex-row gap-8">
-              {/* Account Info */}
               <li className="bg-white/5 p-6 rounded-2xl w-full md:w-1/2 shadow-md">
                 <h2 className="text-2xl font-bold text-white mb-6">
                   👤 Account Info
@@ -119,7 +118,6 @@ const ProfilePage = () => {
                 </button>
               </li>
 
-              {/* Subscription Plan */}
               <li className="bg-white/5 p-6 rounded-2xl w-full md:w-1/2 shadow-md mt-10 md:mt-0">
                 <h2 className="text-2xl font-bold text-white mb-6">
                   📅 Subscription Plan

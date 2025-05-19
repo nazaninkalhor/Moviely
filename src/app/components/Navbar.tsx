@@ -91,9 +91,7 @@ const Navbar = () => {
         </div>
       )}
       <div className="flex w-full justify-between items-center px-4 lg:px-10">
-        {/* Navbar Start */}
         <div className="navbar-start flex items-center">
-          {/* Mobile Dropdown */}
           <div className="dropdown text-white m-0 p-0 lg:hidden">
             <div tabIndex={0} role="button" className="btn btn-ghost">
               <svg
@@ -160,7 +158,6 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Brand Logo */}
           <div className="flex flex-row">
             <Link
               href="/"
@@ -219,10 +216,7 @@ const Navbar = () => {
               </ul>
             </div>
 
-            {/* Navbar End */}
             <div className="flex space-x-2 absolute justify-end right-0 me-3  items-center">
-              {/* Search Icon */}
-
               <div
                 className={`indicator text-white  mt-3 md:mt-0 cursor-pointer ${
                   openSearch ? " customizedMd:hidden" : ""
@@ -288,8 +282,6 @@ const Navbar = () => {
               )}
             </div>
           </div>
-
-          {/* Navbar Center */}
         </div>
       </div>
     </div>

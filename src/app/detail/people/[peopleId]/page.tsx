@@ -33,7 +33,6 @@ const PeopleDetailPage = async ({
       .filter((path) => path !== null)
       .slice(0, 3);
 
-    // Fallback placeholders if less than 3 backdrops exist
     while (backdrops.length < 3) {
       backdrops.push("https://via.placeholder.com/1280x720");
     }
@@ -104,7 +103,6 @@ const PeopleDetailPage = async ({
           </div>
         </div>
 
-        {/* Filmography Section */}
         <div>
           <h2 className="text-white font-semibold text-4xl mb-10 ms-5 mt-10">
             Filmography

@@ -7,7 +7,6 @@ import Link from "next/link";
 const PriceSection = () => {
   return (
     <div className="relative w-full h-[500px]">
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-fixed bg-center bg-cover bg-no-repeat z-0"
         style={{
@@ -16,10 +15,8 @@ const PriceSection = () => {
         }}
       />
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center px-4">
         <Link
           href="/"

@@ -5,15 +5,12 @@ import { AiOutlineGlobal } from "react-icons/ai";
 const News = () => {
   return (
     <div className="mt-3">
-      {/* Title */}
       <div className="flex flex-row text-white mb-8 font-semibold ms-5 text-3xl items-center mt-20">
         <AiOutlineGlobal />
         <h2 className="ms-2 ">Latest News</h2>
       </div>
 
-      {/* Cards Container */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-2 gap-y-10 md:gap-10 lg:mx-10">
-        {/* Card 1 */}
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img
@@ -69,7 +66,6 @@ const News = () => {
             </div>
           </div>
         </div>
-        {/* Card 2 */}
         <div className="card bg-gray-800 shadow-sm">
           <figure>
             <img

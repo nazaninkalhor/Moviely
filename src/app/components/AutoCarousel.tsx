@@ -5,23 +5,21 @@ import Autoplay from "embla-carousel-autoplay";
 
 const AutoCarousel = ({ items }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-  const [itemsPerSlide, setItemsPerSlide] = useState(1); // Default 1 item per slide
+  const [itemsPerSlide, setItemsPerSlide] = useState(1);
 
-  // Function to update the number of items per slide based on window width
   const updateItemsPerSlide = () => {
     const width = window.innerWidth;
     if (width >= 900) {
-      setItemsPerSlide(6); // 6 items per slide on large screens
+      setItemsPerSlide(6); 
     } else if (width >= 768) {
-      setItemsPerSlide(3); // 3 items per slide on medium screens
+      setItemsPerSlide(3); 
     } else if (width >= 425) {
-      setItemsPerSlide(2); // 3 items per slide on medium screens
+      setItemsPerSlide(2); 
     } else {
-      setItemsPerSlide(1); // 1 item per slide on small screens (mobile-first)
+      setItemsPerSlide(1); 
     }
   };
 
-  // Update itemsPerSlide on window resize
   useEffect(() => {
     updateItemsPerSlide();
     window.addEventListener("resize", updateItemsPerSlide);
@@ -29,7 +27,6 @@ const AutoCarousel = ({ items }) => {
     return () => window.removeEventListener("resize", updateItemsPerSlide);
   }, []);
 
-  // Function to split the items into chunks of the given size (itemsPerSlide)
   const chunkItems = (arr, chunkSize) => {
     const chunks = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
@@ -38,7 +35,6 @@ const AutoCarousel = ({ items }) => {
     return chunks;
   };
 
-  // Split items into slides (batches of 6, or dynamic based on screen size)
   const slides = chunkItems(items, itemsPerSlide);
 
   return (

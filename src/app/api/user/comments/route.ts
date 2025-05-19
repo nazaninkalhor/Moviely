@@ -1,4 +1,3 @@
-// /app/api/user/comments/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import connectToDB from "@/lib/mongoose";
 import Post from "@/models/Post";

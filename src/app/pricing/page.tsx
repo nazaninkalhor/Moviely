@@ -6,8 +6,6 @@ const page = () => {
     <>
       <h2 className="text-white text-xl mx-3 text-center md:text-3xl font-medium pt-20 md:pt-36 relative">
         Enjoy Streaming Latest Movies and Series with Moviely
-        {/* <span className="font-bold text-2xl">120</span> Days of Your
-        Subscreption has Remained! */}
       </h2>
 
       <div className="max-w-7xl mx-auto px-6 md:px-4 xl:px-6 md:pt-12">

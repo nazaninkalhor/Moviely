@@ -31,10 +31,8 @@ const Hero = (banner: Banner) => {
             }}
           />
 
-          {/* Black Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent bg-opacity-40"></div>
 
-          {/* Text Content */}
           <div className="absolute bottom-10 left-10 z-10 text-white">
             <div className="w-full ps-1 md:px-16 ">
               <div className="flex flex-row items-center">
