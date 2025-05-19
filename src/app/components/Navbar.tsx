@@ -6,6 +6,7 @@ import { IoLogInOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { useUser } from "../context/UserContext";
+import { setUserContext } from "@/lib/helpers";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,6 +41,8 @@ const Navbar = () => {
       method: "POST",
       credentials: "include",
     });
+    await setUserContext(setLoading);
+
     setIsLogged(false);
     router.push("/");
   };
