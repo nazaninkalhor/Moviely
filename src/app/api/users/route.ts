@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import connectToDB from "@/lib/mongoose";
 import User from "@/models/User";
 
-export async function Get() {
+export async function GET() {
   try {
     await connectToDB();
     const users = await User.find({}, "username email password");
@@ -12,7 +12,7 @@ export async function Get() {
   }
 }
 
-export async function Post(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
     await connectToDB();
     const { username, email, password } = await req.json();
