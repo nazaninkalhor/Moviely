@@ -7,8 +7,8 @@ import { setUserContext } from "@/lib/helpers";
 
 const Page = () => {
   const router = useRouter();
-  const [email, setEmail] = useState("nazanin.k@g.com");
-  const [password, setPassword] = useState("S123!@#s");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 

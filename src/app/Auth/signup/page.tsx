@@ -6,9 +6,9 @@ import { useUser } from "../../context/UserContext";
 
 const Page = () => {
   const router = useRouter();
-  const [username, setUserName] = useState("nazanink");
-  const [email, setEmail] = useState("nazanin.k@g.com");
-  const [password, setPassword] = useState("S123!@#s");
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const { user } = useUser;
