@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from "next/server";
 import connectToDB from "@/lib/mongoose";
 import User from "@/models/User";
