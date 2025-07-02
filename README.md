@@ -29,7 +29,5 @@ Rendering: Server-Side Rendering (SSR)
 
 🔐 Authentication – User login and session management
 
-☁️ Deployed on Vercel
 
-📷 Screenshots
 
