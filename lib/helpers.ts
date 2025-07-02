@@ -9,23 +9,24 @@ export function parseQueryParams(url) {
     }, {});
 }
 
-export async function setUserContext() {
+export async function setUserContext(setUser) {
     try {
         const res = await fetch("/api/user", { credentials: "include" });
-
         if (!res.ok) {
             localStorage.removeItem("cachedUser");
+            setUser(null);
             return;
         }
-
         const data = await res.json();
-
         if (data?.user) {
             localStorage.setItem("cachedUser", JSON.stringify(data.user));
+            setUser(data.user);
         } else {
             localStorage.removeItem("cachedUser");
+            setUser(null);
         }
     } catch {
         localStorage.removeItem("cachedUser");
+        setUser(null);
     }
 }

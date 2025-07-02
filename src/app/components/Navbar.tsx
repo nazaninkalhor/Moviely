@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoLogInOutline } from "react-icons/io5";
 import { IoIosClose } from "react-icons/io";
-import { useRouter } from "next/navigation";
 import { useUser } from "../context/UserContext";
 import { setUserContext } from "@/lib/helpers";
 
@@ -12,12 +11,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
-  const { user, loading } = useUser();
-  const router = useRouter();
+  const { user, setUser, loading } = useUser();
   useEffect(() => {
     if (user) {
-      setIsLogged(true);
     }
   }, [user]);
   useEffect(() => {
@@ -40,19 +36,11 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await fetch("/api/logout", { method: "GET", credentials: "include" });
-      await setUserContext();
-      setIsLogged(false);
+      await setUserContext(setUser);
     } catch (err) {
       console.error("Logout failed", err);
     }
   };
-  useEffect(() => {
-    const user = localStorage.getItem("cachedUser");
-
-    if (!user) {
-      router.push("/");
-    }
-  }, [user, handleLogout]);
 
   const handleSubmit = () => {
     const newQuery = encodeURIComponent(query);

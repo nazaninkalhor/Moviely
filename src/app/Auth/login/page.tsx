@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "../../context/UserContext";
 import { setUserContext } from "@/lib/helpers";
+import { useUser } from "../../context/UserContext";
 
 const Page = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const Page = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
+  const { user, setUser } = useUser();
   const login = async (email: string, password: string) => {
     const res = await fetch("/api/login", {
       method: "POST",
@@ -31,6 +31,7 @@ const Page = () => {
 
     try {
       await login(email, password);
+      await setUserContext(setUser);
       setMessage("✅ Login was successful!");
       setEmail("");
       setPassword("");
@@ -41,9 +42,14 @@ const Page = () => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    if (user && !loading) {
+      router.push("/dashboard");
+    }
+  }, [user, loading]);
   return (
-    <div className="justify-self-stretch items-center mt-20 mx-3 md:mt-40">
-      <div className="backdrop-blur-md bg-gradient-to-bl from-red-900 to-transparent rounded-xl p-8 w-full max-w-sm shadow-2xl justify-self-center ">
+    <div className="flex justify-center items-center min-h-screen px-3">
+      <div className="backdrop-blur-md bg-gradient-to-bl from-red-900 to-transparent rounded-xl p-8 w-full max-w-sm shadow-2xl">
         <h2 className="text-white text-3xl font-bold mb-6 text-center">
           Login
         </h2>

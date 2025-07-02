@@ -59,8 +59,8 @@ const Page = () => {
   };
 
   return (
-    <div className="justify-self-stretch items-center mt-20 mx-3 md:mt-40">
-      <div className="backdrop-blur-md bg-gradient-to-bl from-red-900 to-transparent rounded-xl p-8 w-full max-w-sm shadow-2xl justify-self-center ">
+    <div className="flex justify-center items-center min-h-screen px-3">
+      <div className="backdrop-blur-md bg-gradient-to-bl from-red-900 to-transparent rounded-xl p-8 w-full max-w-sm shadow-2xl">
         <h2 className="text-white text-3xl font-bold mb-6 text-center">
           Register
         </h2>

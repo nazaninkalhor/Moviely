@@ -2,18 +2,26 @@
 import { useState, useEffect } from "react";
 import { useUser } from "../context/UserContext";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("account");
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
   const { user, loading } = useUser();
+  const router = useRouter();
 
   const tabs = [
     { id: "account", label: "👤 Account " },
     { id: "favorites", label: "❤️ Favorites" },
     { id: "activities", label: "📌 Activities" },
   ];
+
+  useEffect(() => {
+    if (!user && !loading) {
+      router.push("/Auth/login");
+    }
+  }, [user, loading]);
 
   useEffect(() => {
     const fetchLikes = async () => {
