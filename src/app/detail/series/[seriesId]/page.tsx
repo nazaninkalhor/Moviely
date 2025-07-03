@@ -11,7 +11,7 @@ import StreamVideo from "../../../components/StreamVideo";
 function truncateToFirstDecimal(number) {
   return Math.trunc(number * 10) / 10;
 }
-
+export const dynamic = "force-dynamic";
 const SeriesDetailPage = async ({
   params: { seriesId },
 }: {
