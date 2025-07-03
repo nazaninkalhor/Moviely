@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
 
             await post.save();
 
-            return NextResponse.json({ comment: post.comment }, { status: 201 });
+            return NextResponse.json({ comments: post.comment }, { status: 201 });
         }
 
         const newPost = new Post({
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
         });
         await newPost.save();
 
-        return NextResponse.json({ comment: newPost.comment }, { status: 201 });
+        return NextResponse.json({ comments: newPost.comment }, { status: 201 });
 
     } catch (err) {
         console.error("Error:", err);
