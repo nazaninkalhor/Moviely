@@ -21,8 +21,9 @@ const StreamVideo = () => {
           </div>
         </>
       ) : (
-        <p className="font-medium text-xl text-red-400">
-          Please Signup or Login to Stream This Movie!
+        <p className="text-gray-300 mt-5 text-center">
+          You need to <span className="underline">login or register</span> to
+          stream.
         </p>
       )}
     </div>

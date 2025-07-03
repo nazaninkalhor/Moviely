@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useUser } from "../context/UserContext";
 import ReviewCards from "./ReviewCards";
+import { useRouter } from "next/navigation";
 
 const Comments = ({
   postPosterPath,
@@ -15,7 +16,7 @@ const Comments = ({
   const [localReviews, setLocalReviews] = useState([]);
   const userId = user?._id || "";
   const username = user?.username;
-
+  const router = useRouter();
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -63,6 +64,7 @@ const Comments = ({
           postPosterPath,
         }),
       });
+      router.push(`/${typeId}/${postId}`);
 
       const data = await res.json();
 
@@ -113,8 +115,8 @@ const Comments = ({
         </form>
       ) : (
         <p className="text-gray-300 mt-5 text-center">
-          You need to <span className="underline">log in or register</span> to
-          comment.
+          You need to <span className="underline">login or register</span> to
+          stream.
         </p>
       )}
     </div>
